@@ -22,6 +22,7 @@
 			<version>5.1.4.RELEASE</version>
 
 		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -31,6 +32,11 @@
 
 
 
+		<dependency>
+			<groupId>com.niit</groupId>
+			<artifactId>stationarybackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>stationaryfrontend</finalName>

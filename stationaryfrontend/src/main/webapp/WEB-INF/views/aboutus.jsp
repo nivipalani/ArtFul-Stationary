@@ -131,7 +131,8 @@ a:hover, a:active {
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
-                    
+                    <img src="resources/images/heartstationary11.png" height="280" width="280">
+                     <img src="resources/images/note.jpg" height="280" width="280"> 
                 </div>
                 <div class="col-md-5 col-sm-6 col-xs-12">
                     <div class="feature">
@@ -140,6 +141,7 @@ a:hover, a:active {
                                 <div class="iconset">
                                     <span class="glyphicon glyphicon-cog icon"></span>
                                 </div>
+                                
                                 <div class="feature-content">
                                    
                                     <p>ArtfulStationery.in is India's leading online shopping portal which offers hottest 

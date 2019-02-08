@@ -1,13 +1,6 @@
 
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
 
-
-<title>
-	Slider Preview
-</title></head>
 <body style="margin:0;padding:0;font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, 'Segoe UI', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; background-color: #262626;">
     
     <!-- #region Jssor Slider Begin -->
@@ -125,65 +118,57 @@
     <div id="jssor_1" style="position:relative;margin:0 auto;top:10px;left:0px;width:1280px;height:380px;overflow:hidden;visibility:hidden;">
         <!-- Loading Screen -->
         <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
-            <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="//jssorcdn7.azureedge.net/theme/svg/loading/static-svg/spin.svg" />
+            <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="resources/images/stationary.jpg" />
         </div>
         <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1280px;height:380px;overflow:hidden;">
             <div>
-                <img data-u="image" src="https://jssorcdn7.azureedge.net/demos/img/gallery/980x380/001.jpg" />
-                <div data-t="0" style="position:absolute;top:320px;left:30px;width:500px;height:40px;font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;background-color:rgba(255,188,5,0.8);">Mobile ready, touch swipe</div>
+                <img data-u="image" src="resources/images/pencil.jpg" />
+                <div data-t="0" style="position:absolute;top:320px;left:30px;width:500px;height:40px;font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;background-color:rgba(255,188,5,0.8);">Artful Stationary</div>
             </div>
             <div>
-                <img data-u="image" src="https://jssorcdn7.azureedge.net/demos/img/gallery/980x380/002.jpg" />
+                <img data-u="image" src="resources/images/img1.jpg" />
                 <div data-ts="flat" data-p="1360" style="position:absolute;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
-                    <div data-t="1" style="position:absolute;top:-50px;left:125px;width:500px;height:40px;font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;background-color:rgba(255,188,5,0.8);">Time lined layer animation</div>
+                    <div data-t="1" style="position:absolute;top:-50px;left:125px;width:500px;height:40px;font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;background-color:rgba(255,188,5,0.8);">Your needs at your door step</div>
                 </div>
             </div>
             <div>
-                <img data-u="image" src="https://jssorcdn7.azureedge.net/demos/img/gallery/980x380/003.jpg" />
+                <img data-u="image" src="resources/images/file.jpg" />
                 <div data-ts="flat" data-p="1360" style="position:absolute;top:0px;left:0px;width:980px;height:380px;">
-                    <div data-t="2" style="position:absolute;top:30px;left:-505px;width:500px;height:40px;font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;background-color:rgba(255,188,5,0.8);">Finger catchable right to left</div>
+                    <div data-t="2" style="position:absolute;top:30px;left:-505px;width:500px;height:40px;font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;background-color:rgba(255,188,5,0.8);">Office and School items</div>
                 </div>
             </div>
             <div>
-                <img data-u="image" src="https://jssorcdn7.azureedge.net/demos/img/gallery/980x380/004.jpg" />
-                <div data-t="3" style="position:absolute;top:30px;left:30px;width:500px;height:40px;font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;background-color:rgba(255,188,5,0.8);">responsive, scale smoothly</div>
+                <img data-u="image" src="resources/images/file1.jpg" />
+                <div data-t="3" style="position:absolute;top:30px;left:30px;width:500px;height:40px;font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;background-color:rgba(255,188,5,0.8);">Back to School</div>
             </div>
             <div>
-                <img data-u="image" src="https://jssorcdn7.azureedge.net/demos/img/gallery/980x380/005.jpg" />
-                <div data-t="4" style="position:absolute;top:30px;left:30px;width:500px;height:40px;font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;background-color:rgba(255,188,5,0.8);">image, text, and custom layers</div>
+                <img data-u="image" src="resources/images/img2.jpg" />
+                <div data-t="4" style="position:absolute;top:30px;left:30px;width:500px;height:40px;font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;background-color:rgba(255,188,5,0.8);">You are the creator of your own destiny</div>
             </div>
             <div>
-                <img data-u="image" src="https://jssorcdn7.azureedge.net/demos/img/gallery/980x380/006.jpg" />
-                <div data-t="5" style="position:absolute;top:30px;left:600px;width:500px;height:40px;font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;background-color:rgba(255,188,5,0.8);">tons of transition type</div>
-            </div>
-            <div>
-                <img data-u="image" src="https://jssorcdn7.azureedge.net/demos/img/gallery/980x380/007.jpg" />
-                <div data-t="6" style="position:absolute;top:30px;left:30px;width:500px;height:40px;font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;background-color:rgba(255,188,5,0.8);">visual slider maker</div>
+                <img data-u="image" src="resources/images/stat2.jpg" />
+                <div data-t="6" style="position:absolute;top:30px;left:30px;width:500px;height:40px;font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;background-color:rgba(255,188,5,0.8);">Stationary Appliances</div>
             </div>
             <div data-b="0">
-                <img data-u="image" src="https://jssorcdn7.azureedge.net/demos/img/gallery/980x380/008.jpg" />
-                <div data-t="7" style="position:absolute;top:-50px;left:30px;width:500px;height:40px;font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;background-color:rgba(255,188,5,0.8);">play in and play out</div>
+                <img data-u="image" src="resources/images/pen.jpg" />
+                <div data-t="7" style="position:absolute;top:-50px;left:30px;width:500px;height:40px;font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;background-color:rgba(255,188,5,0.8);">Education for the Nation</div>
             </div>
             <div>
-                <img data-u="image" src="https://jssorcdn7.azureedge.net/demos/img/gallery/980x380/009.jpg" />
+                <img data-u="image" src="resources/images/colourpencil.jpg" />
                 <div data-ts="flat" data-p="1360" style="position:absolute;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
                     <div data-t="8" data-ts="preserve-3d" style="position:absolute;top:25px;left:150px;width:250px;height:250px;overflow:hidden;background-color:rgba(40,177,255,0.6);">
-                        <div data-t="9" style="position:absolute;top:100px;left:25px;width:200px;height:50px;font-family:Oswald,sans-serif;font-size:24px;font-weight:200;line-height:2.08;">A Child Layer</div>
+                        <div data-t="9" style="position:absolute;top:100px;left:25px;width:200px;height:50px;font-family:Oswald,sans-serif;font-size:24px;font-weight:200;line-height:2.08;"></div>
                     </div>
                 </div>
             </div>
             <div>
-                <img data-u="image" src="https://jssorcdn7.azureedge.net/demos/img/gallery/980x380/010.jpg" />
+                <img data-u="image" src="resources/images/stat3.jpg" />
                 <div data-ts="flat" data-p="1360" style="position:absolute;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
                     <div data-t="10" style="position:absolute;top:25px;left:100px;width:300px;height:260px;font-family:Oswald,sans-serif;font-size:24px;font-weight:200;line-height:1.25;padding:15px 15px 15px 15px;box-sizing:border-box;background-color:rgba(40,177,255,0.6);background-clip:padding-box;">This is full customized content layer.<br />​<br />
 
-                        Everything is allowed.<br />​<br />You can insert
 
-                        <a href="http://wwww.jssor.com">
-                            a link
-                        </a> or an image
 
-                        <img src="https://jssorcdn7.azureedge.net/demos/img/icons/icon_chrome.png" /> here.
+                        <img src="resources/images/stat4.png" /> 
                     </div>
                 </div>
             </div>
@@ -211,4 +196,3 @@
     <script type="text/javascript">jssor_1_slider_init();</script>
     <!-- #endregion Jssor Slider End -->
 </body>
-</html>

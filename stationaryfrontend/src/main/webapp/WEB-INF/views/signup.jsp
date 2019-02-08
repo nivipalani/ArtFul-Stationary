@@ -1,40 +1,8 @@
-
-<!DOCTYPE html>
-<html lang="en">
-    <head> 
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-		<!-- Website CSS style -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-
-		<!-- Website Font style -->
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-		<link rel="stylesheet" href="style.css">
-		<!-- Google Fonts -->
-		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-
-		<title>Admin</title>
-		<style>
-		/*
-/* Created by Filipe Pina
- * Specific styles of signin, register, component
- */
-/*
- * General styles
- */
+<style>
 #playground-container {
     height: 500px;
     overflow: hidden !important;
     -webkit-overflow-scrolling: touch;
-}
-body, html{
-     height: 100%;
- 	background-repeat: no-repeat;
- 	background:url(https://i.ytimg.com/vi/4kfXjatgeEU/maxresdefault.jpg);
- 	font-family: 'Oxygen', sans-serif;
-	    background-size: cover;
 }
 
 .main{
@@ -111,9 +79,10 @@ padding: 8px 12px !important;
 .main-center{
  	margin-top: 30px;
  	margin: 0 auto;
- 	max-width: 400px;
+ 	min-width:600px;
+ 	max-width: 700px;
     padding: 10px 40px;
-	background:#e51937;
+ 	background:#e51937; 
 	    color: #FFF;
     text-shadow: none;
 	-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
@@ -122,8 +91,9 @@ box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
 
 }
 span.input-group-addon i {
-    color: #e51937;
-    font-size: 17px;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 15,15,15,15;
 }
 
 .login-button{
@@ -136,8 +106,7 @@ span.input-group-addon i {
 }
 
 		</style>
-	</head>
-	<body>
+	
 		<div class="container">
 			<div class="row main">
 				<div class="main-login main-center">
@@ -184,18 +153,9 @@ span.input-group-addon i {
 							</div>
 						</div>
 
-						<div class="form-group">
-							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
-								</div>
-							</div>
-						</div>
 
 						<div class="form-group ">
-							<a href="https://deepak646.blogspot.com/" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Register</a>
+							<a href="https://deepak646.blogspot.com/" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button"><font color="white">Register</font></a>
 						</div>
 						
 					</form>
@@ -206,6 +166,3 @@ span.input-group-addon i {
 		 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-	</body>
-</html>
