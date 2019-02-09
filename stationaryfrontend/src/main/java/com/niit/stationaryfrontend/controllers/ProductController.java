@@ -11,21 +11,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.niit.stationarybackend.dao.CategoryDao;
-import com.niit.stationarybackend.model.Category;
+import com.niit.stationarybackend.dao.ProductDao;
+import com.niit.stationarybackend.model.Product;
 
 @Controller
-public class CategoryController {
-
+public class ProductController {
+	@Autowired
+	ProductDao productDao;
+	
 	@Autowired
 	CategoryDao categoryDao;
 
-	@RequestMapping("/category")
-	String categoryPage(Model model) {
-		model.addAttribute("catpage", true);
-		model.addAttribute("mycategory", new Category());
+	@RequestMapping("/product")
+	String productPage(Model model) {
+		model.addAttribute("prodpage", true);
+		model.addAttribute("myproduct", new Product());
 		model.addAttribute("Error1", false);
 		model.addAttribute("Success", false);
 		model.addAttribute("Error2", false);
+		model.addAttribute("product_list", productDao.selectAllProduct());
 		model.addAttribute("category_list", categoryDao.selectAllCategory());
 		model.addAttribute("Error3", false);
 		model.addAttribute("edit", false);
@@ -41,16 +45,17 @@ public class CategoryController {
 	// return "index";
 	// }
 
-	@RequestMapping("/addCategory")
-	String insertCategoryPage(@Valid @ModelAttribute("mycategory") Category category, BindingResult bindingResult,
+	@RequestMapping("/addProduct")
+	String insertProductPage(@Valid @ModelAttribute("myproduct") Product product, BindingResult bindingResult,
 			Model model) {
 
 		if (bindingResult.hasErrors()) {
-			model.addAttribute("catpage", true);
-			model.addAttribute("mycategory", category);
+			model.addAttribute("prodpage", true);
+			model.addAttribute("myproduct", product);
 			model.addAttribute("Error1", true);
 			model.addAttribute("Success", false);
 			model.addAttribute("Error2", false);
+			model.addAttribute("product_list", productDao.selectAllProduct());
 			model.addAttribute("category_list", categoryDao.selectAllCategory());
 			model.addAttribute("Error3", false);
 			model.addAttribute("edit", false);
@@ -59,33 +64,40 @@ public class CategoryController {
 
 		else {
 			try {
-				if (categoryDao.createCategory(category)) {
-					model.addAttribute("catpage", true);
-					model.addAttribute("mycategory", new Category());
+				
+				if (productDao.createProduct(product)) {
+					model.addAttribute("prodpage", true);
+					model.addAttribute("myproduct",new Product());
 					model.addAttribute("Error1", false);
 					model.addAttribute("Success", true);
 					model.addAttribute("Error2", false);
+					model.addAttribute("product_list", productDao.selectAllProduct());
 					model.addAttribute("category_list", categoryDao.selectAllCategory());
 					model.addAttribute("Error3", false);
 					model.addAttribute("edit", false);
 				}
 				else
 				{
-					model.addAttribute("catpage", true);
-					model.addAttribute("mycategory", new Category());
+					model.addAttribute("prodpage", true);
+					model.addAttribute("myproduct", product);
 					model.addAttribute("Error1", false);
 					model.addAttribute("Success", false);
 					model.addAttribute("Error2", false);
+					model.addAttribute("product_list", productDao.selectAllProduct());
 					model.addAttribute("category_list", categoryDao.selectAllCategory());
 					model.addAttribute("Error3", true);
 					model.addAttribute("edit", false);
+				
+					
 				}
+				
 			} catch (Exception e) {
-				model.addAttribute("catpage", true);
-				model.addAttribute("mycategory", category);
+				model.addAttribute("prodpage", true);
+				model.addAttribute("myproduct", product);
 				model.addAttribute("Error1", false);
 				model.addAttribute("Success", false);
 				model.addAttribute("Error2", true);
+				model.addAttribute("product_list", productDao.selectAllProduct());
 				model.addAttribute("category_list", categoryDao.selectAllCategory());
 				model.addAttribute("Error3", false);
 				model.addAttribute("edit", false);
@@ -95,20 +107,21 @@ public class CategoryController {
 		return "index";
 	}
 	
-	@RequestMapping("/deleteCategory")
-	String deleteCategoryPage(@RequestParam("catid")int cat_Id,Model model)
+	@RequestMapping("/deleteProduct")
+	String deleteProductPage(@RequestParam("prodid")int prod_Id,Model model)
 	{
 		try
 		{
-			if(categoryDao.deleteCategory(categoryDao.selectOneCategory(cat_Id)))
-			return "redirect:/category";
+			if(productDao.deleteProduct(productDao.selectOneProduct(prod_Id)))
+				return "redirect:/product";
 			else
 			{
-				model.addAttribute("catpage", true);
-				model.addAttribute("mycategory", new Category());
+				model.addAttribute("prodpage", true);
+				model.addAttribute("myproduct", new Product());
 				model.addAttribute("Error1", false);
 				model.addAttribute("Success", false);
 				model.addAttribute("Error2", false);
+				model.addAttribute("product_list", productDao.selectAllProduct());
 				model.addAttribute("category_list", categoryDao.selectAllCategory());
 				model.addAttribute("Error3", true);
 				model.addAttribute("edit", false);
@@ -118,11 +131,12 @@ public class CategoryController {
 		}
 		catch(Exception e)
 		{
-			model.addAttribute("catpage", true);
-			model.addAttribute("mycategory", new Category());
+			model.addAttribute("prodpage", true);
+			model.addAttribute("myproduct", new Product());
 			model.addAttribute("Error1", false);
 			model.addAttribute("Success", false);
 			model.addAttribute("Error2", false);
+			model.addAttribute("product_list", productDao.selectAllProduct());
 			model.addAttribute("category_list", categoryDao.selectAllCategory());
 			model.addAttribute("Error3", true);
 			model.addAttribute("edit", false);
@@ -132,74 +146,84 @@ public class CategoryController {
 		
 	}
 	
-	
-	@RequestMapping("/editCategory")
-	String editCategoryPage(@RequestParam("catid")int cat_Id,Model model) {
-		model.addAttribute("catpage", true);
-		model.addAttribute("mycategory", categoryDao.selectOneCategory(cat_Id));
+
+	@RequestMapping("/editProduct")
+	String productPage(@RequestParam("prodid")int prod_Id,Model model) {
+		model.addAttribute("prodpage", true);
+		model.addAttribute("myproduct", productDao.selectOneProduct(prod_Id));
 		model.addAttribute("Error1", false);
 		model.addAttribute("Success", false);
 		model.addAttribute("Error2", false);
+		model.addAttribute("product_list", productDao.selectAllProduct());
 		model.addAttribute("category_list", categoryDao.selectAllCategory());
 		model.addAttribute("Error3", false);
 		model.addAttribute("edit", true);
 		return "index";
 	}
 	
-	@RequestMapping("/updateCategory")
-	String updateCategoryPage(@Valid @ModelAttribute("mycategory") Category category, BindingResult bindingResult,
+	@RequestMapping("/updateProduct")
+	String updateProductPage(@Valid @ModelAttribute("myproduct") Product product, BindingResult bindingResult,
 			Model model) {
 
 		if (bindingResult.hasErrors()) {
-			model.addAttribute("catpage", true);
-			model.addAttribute("mycategory", category);
+			model.addAttribute("prodpage", true);
+			model.addAttribute("myproduct", product);
 			model.addAttribute("Error1", true);
 			model.addAttribute("Success", false);
 			model.addAttribute("Error2", false);
+			model.addAttribute("product_list", productDao.selectAllProduct());
 			model.addAttribute("category_list", categoryDao.selectAllCategory());
 			model.addAttribute("Error3", false);
-			model.addAttribute("edit", false);
+			model.addAttribute("edit", true);
 
 		}
 
 		else {
 			try {
-				if (categoryDao.updateCategory(category)) {
-					model.addAttribute("catpage", true);
-					model.addAttribute("mycategory", new Category());
+				
+				if (productDao.updateProduct(product)) {
+					model.addAttribute("prodpage", true);
+					model.addAttribute("myproduct",new Product());
 					model.addAttribute("Error1", false);
 					model.addAttribute("Success", true);
 					model.addAttribute("Error2", false);
+					model.addAttribute("product_list", productDao.selectAllProduct());
 					model.addAttribute("category_list", categoryDao.selectAllCategory());
 					model.addAttribute("Error3", false);
 					model.addAttribute("edit", false);
 				}
 				else
 				{
-					model.addAttribute("catpage", true);
-					model.addAttribute("mycategory", new Category());
+					model.addAttribute("prodpage", true);
+					model.addAttribute("myproduct", product);
 					model.addAttribute("Error1", false);
 					model.addAttribute("Success", false);
 					model.addAttribute("Error2", false);
+					model.addAttribute("product_list", productDao.selectAllProduct());
 					model.addAttribute("category_list", categoryDao.selectAllCategory());
 					model.addAttribute("Error3", true);
-					model.addAttribute("edit", false);
+					model.addAttribute("edit", true);
+				
+					
 				}
+				
 			} catch (Exception e) {
-				model.addAttribute("catpage", true);
-				model.addAttribute("mycategory", category);
+				System.out.println(e.getMessage());
+				model.addAttribute("prodpage", true);
+				model.addAttribute("myproduct", product);
 				model.addAttribute("Error1", false);
 				model.addAttribute("Success", false);
 				model.addAttribute("Error2", true);
+				model.addAttribute("product_list", productDao.selectAllProduct());
 				model.addAttribute("category_list", categoryDao.selectAllCategory());
 				model.addAttribute("Error3", false);
-				model.addAttribute("edit", false);
+				model.addAttribute("edit", true);
 			}
 
 		}
 		return "index";
 	}
+	
 
-	
-	
+
 }

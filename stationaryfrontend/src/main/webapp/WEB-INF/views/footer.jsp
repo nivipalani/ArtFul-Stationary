@@ -1,8 +1,3 @@
-<html>
-<head>
-<title></title>
-
-<!------ Include the above in your HEAD tag ---------->
 <style>
 /* Footer */
 @import
@@ -94,8 +89,6 @@ section .section-title {
 	}
 }
 </style>
-</head>
-<!-- Footer -->
 <section id="footer">
 	<div class="container">
 		<div class="row text-center text-xs-center text-sm-left text-md-left">

@@ -9,9 +9,8 @@ body {
 	font: normal 14px Roboto, arial, sans-serif;
 }
 
-.container {
+.mystyle-login {
 	padding: 90px;
-	position: fixed;
 	margin-left: 32%;
 	margin-right: 32%;
 }
@@ -44,15 +43,9 @@ h4 {
 	text-align: center;
 }
 </style>
-
-<!--Pulling Awesome Font -->
-<!-- 		<link -->
-<!-- 			href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.1/css/font-awesome.min.css" -->
-<!-- 			rel="stylesheet"> -->
-
-<div class="container">
+<div class="container mystyle-login">
 	<div class="row">
-		<div class="col-md-offset-5 col-md-4">
+		<div class="col-md-5">
 			<div class="form-login">
 				<h4>
 					<font color="#ffffff">SignIn...</font>

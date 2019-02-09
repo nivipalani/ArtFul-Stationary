@@ -94,6 +94,7 @@ a, a:hover,a:focus{
 								<li><a href="aboutus"><span>About us</span></a></li>
                                 <li><a href="contactus"><span>Contact Us</span></a></li>
                                 <li><a href="category"><span>Category</span></a></li>
+                                <li><a href="product"><span>Product</span></a></li>
                             </ul>
                         </div>
                     </div>

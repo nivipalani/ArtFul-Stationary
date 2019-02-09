@@ -32,12 +32,21 @@
 	margin-bottom: 30px;
 }
 
-@media ( max-width : 768px) {
-	#contact iframe {
-		margin-bottom: 15px;
-	}
+
+.mapouter {
+	text-align: right;
+	height: 300px;
+	width: 315px;
+}
+
+.gmap_canvas {
+	overflow: hidden;
+	background: none !important;
+	height: 300px;
+	width: 315px;
 }
 </style>
+
 </head>
 <body>
 	<section id="contact">
@@ -49,18 +58,14 @@
 			</div>
 
 			<div class="row">
-<!-- 				<div style="width: 720px"> -->
-<!-- 					<iframe width="720" height="315" -->
-<!-- 						src="https://maps.google.com/maps?width=720&amp;height=315&amp;hl=en&amp;coord=11.0054693,77.0489932&amp;q=7%2C%20Street%20%2312%2C%20Gandhi%20Park%2C%20Laxmi%20Nagar%2C%20Coimbatore%20-%20641016+(Artful%20Stationary)&amp;ie=UTF8&amp;t=&amp;z=13&amp;iwloc=A&amp;output=embed" -->
-<!-- 						frameborder="0" scrolling="no" marginheight="0" marginwidth="0"> -->
-<!-- 						<a href="https://www.maps.ie/map-my-route/">Draw map route</a> -->
-<!-- 					</iframe> -->
-<!-- 				</div> -->
-				<br />
-					  <div class="col-md-7">
-				        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3736489.7218514383!2d90.21589792292741!3d23.857125486636733!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1506502314230" width="100%" height="315" frameborder="0" style="border:0" allowfullscreen></iframe>
-				      </div>
-
+				<div class="mapouter">
+					<div class="gmap_canvas">
+						<iframe width="100%" height="315" id="gmap_canvas"
+							src="https://maps.google.com/maps?q=artful%20stationary%2C%20street%2012%20gandhi%20park%2Ccoimbatore&t=k&z=13&ie=UTF8&iwloc=&output=embed"
+							frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+						<a href="https://www.embedgooglemap.net"></a>
+					</div>
+				</div>
 				<div class="col-md-5">
 					<h4>
 						<strong>Get in Touch</strong>

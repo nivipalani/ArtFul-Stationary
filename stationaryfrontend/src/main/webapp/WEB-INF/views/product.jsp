@@ -169,7 +169,7 @@
 	}
 }
 </style>
-
+<
 <script type="text/javascript">
 	function filter($state) {
 		var x = document.getElementsByClassName($state);
@@ -191,13 +191,8 @@
 </script>
 <section class="form-type-one">
 	<div class="container ">
-
-
 		<div class="row ">
-
 			<div class="col-md-12 col-md-offset-3">
-
-
 				<div class="form-warp">
 					<div class="form-card">
 						<div class="form">
@@ -218,116 +213,152 @@
 									</div>
 								</c:if>
 								<c:if test="${Error3}">
-								<div class="alert alert-warning">
+									<div class="alert alert-warning">
 										<strong>Warning</strong>Please contact the Administrater
 									</div>
 								</c:if>
 								
 								<c:if test="${edit}">
-								<c:set var="url" value="updateCategory"></c:set>
+								<c:set var="url" value="updateProduct"></c:set>
 								</c:if>
 								
 								<c:if test="${!edit}">
-								<c:set var="url" value="addCategory"></c:set>
+								<c:set var="url" value="addProduct"></c:set>
 								</c:if>
 
-								<form:form action="${url}" modelAttribute="mycategory"
+								<form:form action="${url}" modelAttribute="myproduct"
 									method="Post">
 									<div class="form-group">
 										<center>
-											<b><label><font size="5">CATEGORY PAGE</font> </label><b>
+											<b><label><font size="5">Product</font> </label><b>
 										</center>
 									</div>
+									
 									<c:if test="${edit}">
 									<div class="form-group">
-										<label for="email"> Category ID:</label>
-										<form:input type="text" name="cat_id"
+										<label for="email"> Product ID:</label>
+										<form:input type="text" name="prod_id"
 											class="form-control my-input" id="id"
-											placeholder="Category ID" path="cat_Id" readonly="true" />
-											
+											placeholder="Product ID" path="prod_id" readonly="true"/>
+										
 									</div>
 									</c:if>
+									
 
 									<div class="form-group">
-										<label for="email"> Category Name:</label>
-										<form:input type="text" name="cat_name"
+										<label for="email"> Product Name:</label>
+										<form:input type="text" name="prod_name"
 											class="form-control my-input" id="name"
-											placeholder="Category Name" path="cat_Name" />
-											<form:errors path="cat_Name" cssStyle="color:Red"></form:errors>
+											placeholder="Product Name" path="prod_name" />
+										<form:errors path="prod_name" cssStyle="color:Red"></form:errors>
+									</div>
+									<div class="form-group">
+										<label>Product Description:</label>
+										<form:textarea name="desc" class="form-control" id="iq"
+											placeholder="Product Description" path="prod_description" />
+										<form:errors path="prod_description" cssStyle="color:Red"></form:errors>
+									</div>
+									<div class="form-group">
+										<label for="email"> Category:</label>
+										<form:select path="category.cat_Id" class="form-control">
+											<form:option value="0">Select Category</form:option>
+											<c:forEach items="${category_list}" var="c">
+												<form:option value="${c.cat_Id}">${c.cat_Name}</form:option>
+											</c:forEach>
+										</form:select>
 									</div>
 
 
 									<div class="form-group">
-										<label>Category Description</label>
-										<form:textarea name="desc" class="form-control" id="iq"
-											placeholder="Category Description" path="cat_Description" />
-										</textarea>
-										<form:errors path="cat_Description" cssStyle="color:Red"></form:errors>
+										<label for="email"> Product Quantity:</label>
+										<form:input type="text" name="prod_quan"
+											class="form-control my-input" id="name"
+											placeholder="Product Quantity" path="prod_quantity" />
+										<form:errors path="prod_quantity" cssStyle="color:Red"></form:errors>
 									</div>
-									<input type="submit" class="form-btn" value="Save">
-
+									<div class="form-group">
+										<label for="email"> Product Price:</label>
+										<form:input type="text" name="prod_price"
+											class="form-control my-input" id="name"
+											placeholder="Product Price" path="prod_price" />
+										<form:errors path="prod_price" cssStyle="color:Red"></form:errors>
+									</div>
+									<input type="submit" class="form-btn" value="Save" />
 								</form:form>
+
 							</div>
 						</div>
-						<div class="error"></div>
 					</div>
 
 				</div>
+			</div>
+		</div>
+	</div>
+
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.1/css/font-awesome.min.css">
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootswatch/4.1.1/lumen/bootstrap.min.css">
+	<link rel="stylesheet"
+		href="https://daneden.github.io/animate.css/animate.min.css">
+	<div class="container" style="margin-top: 20px;">
+		<div class="row">
+			<div id="user" class="col-md-12">
+				<div class="panel panel-primary panel-table animated slideInDown">
+					<div class="panel-heading " style="padding: 5px;">
+						<div class="row">
+
+							<div class="col col-xs-5 text-center">
+								<h1 class="panel-title">Product List</h1>
+							</div>
+
+						</div>
+					</div>
+					<div class="panel-body">
+						<div class="tab-content" style="margin-bottom: 10px">
+							<div role="tabpanel" class="tab-pane active" id="list">
+								<table class="table table-striped table-bordered table-list">
+									<thead style="background-color: #e51937">
+										<tr>
+											<th>Product ID</th>
+											<th>Product Name</th>
+											<th>Product Description</th>
+											<th>Category</th>
+											<th>Product Quantity</th>
+											<th>Product Price</th>
+
+											<th><em class="fa fa-cog"></em></th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach items="${product_list}" var="p">
+											<tr class="ok">
+												<td>${p.prod_id}</td>
+												<td>${p.prod_name}</td>
+												<td>${p.prod_description}</td>
+												<td>${p.category.cat_Name}</td>
+												<td>${p.prod_quantity}</td>
+												<td>${p.prod_price}</td>
+												<td align="center"><a href="editProduct?prodid=${p.prod_id}" class="btn btn-primary"
+													title="Edit"><i class="fa fa-pencil"></i></a> <a
+													href="deleteProduct?prodid=${p.prod_id}"
+													class="btn btn-danger" title="delete"><i
+														class="fa fa-trash"></i></a></td>
+											</tr>
+										</c:forEach>
+
+									</tbody>
+								</table>
+							</div>
+
+
+						</div>
+
+					</div>
+				</div>
+
+
 			</div>
 		</div>
 	</div>
 </section>
-<div class="container" style="margin-top: 20px;">
-	<div class="row">
-		<div id="user" class="col-md-12">
-			<div class="panel panel-primary panel-table animated slideInDown">
-				<div class="panel-heading " style="padding: 5px;">
-					<div class="row">
-
-						<div class="col col-xs-5 text-center">
-							<h1 class="panel-title">Category List</h1>
-						</div>
-
-					</div>
-				</div>
-				<div class="panel-body">
-					<div class="tab-content" style="margin-bottom: 10px">
-						<div role="tabpanel" class="tab-pane active" id="list">
-							<table class="table table-striped table-bordered table-list">
-								<thead style="background-color: #e51937">
-									<tr>
-										<th>Category ID</th>
-										<th>Category Name</th>
-										<th>Category Description</th>
-										<th><em class="fa fa-cog"></em></th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach items="${category_list}" var="c">
-										<tr class="ok">
-											<td>${c.cat_Id}</td>
-											<td>${c.cat_Name}</td>
-											<td>${c.cat_Description}</td>
-											<td align="center"><a href="editCategory?catid=${c.cat_Id}" class="btn btn-primary"
-												title="Edit"><i class="fa fa-pencil"></i></a> 
-												<a href="deleteCategory?catid=${c.cat_Id}"
-												class="btn btn-danger" title="delete"><i
-													class="fa fa-trash"></i></a></td>
-										</tr>
-									</c:forEach>
-
-								</tbody>
-							</table>
-						</div>
-
-
-					</div>
-
-				</div>
-			</div>
-
-
-		</div>
-	</div>
-</div>
-</div>

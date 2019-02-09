@@ -34,7 +34,13 @@
 			<jsp:include page="aboutus.jsp" />
 		</c:if>
 		<c:if test="${catpage}">
-			<jsp:include page="category.jsp"/></c:if>
+			<jsp:include page="category.jsp" />
+		</c:if>
+		<c:if test="${prodpage}">
+		<jsp:include page="product.jsp" />
+		</c:if>
+
+
 	</div>
 	<jsp:include page="footer.jsp" />
 </body>
