@@ -1,2 +1,4 @@
 com\niit\stationaryfrontend\controllers\HomeController.class
+com\niit\stationaryfrontend\controllers\ProductController.class
 com\niit\stationaryfrontend\controllers\CategoryController.class
+com\niit\stationaryfrontend\controllers\UserController.class

@@ -11,8 +11,8 @@ body {
 
 .mystyle-login {
 	padding: 90px;
-	margin-left: 32%;
-	margin-right: 32%;
+	margin-left: 28%;
+	margin-right: 28%;
 }
 
 .form-login {
@@ -41,6 +41,7 @@ h4 {
 
 .wrapper {
 	text-align: center;
+	
 }
 </style>
 <div class="container mystyle-login">

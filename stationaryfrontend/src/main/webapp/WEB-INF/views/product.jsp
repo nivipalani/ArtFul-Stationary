@@ -217,33 +217,33 @@
 										<strong>Warning</strong>Please contact the Administrater
 									</div>
 								</c:if>
-								
+
 								<c:if test="${edit}">
-								<c:set var="url" value="updateProduct"></c:set>
+									<c:set var="url" value="updateProduct"></c:set>
 								</c:if>
-								
+
 								<c:if test="${!edit}">
-								<c:set var="url" value="addProduct"></c:set>
+									<c:set var="url" value="addProduct"></c:set>
 								</c:if>
 
 								<form:form action="${url}" modelAttribute="myproduct"
-									method="Post">
+									method="Post" enctype="multipart/form-data">
 									<div class="form-group">
 										<center>
 											<b><label><font size="5">Product</font> </label><b>
 										</center>
 									</div>
-									
+
 									<c:if test="${edit}">
-									<div class="form-group">
-										<label for="email"> Product ID:</label>
-										<form:input type="text" name="prod_id"
-											class="form-control my-input" id="id"
-											placeholder="Product ID" path="prod_id" readonly="true"/>
-										
-									</div>
+										<div class="form-group">
+											<label for="email"> Product ID:</label>
+											<form:input type="text" name="prod_id"
+												class="form-control my-input" id="id"
+												placeholder="Product ID" path="prod_id" readonly="true" />
+
+										</div>
 									</c:if>
-									
+
 
 									<div class="form-group">
 										<label for="email"> Product Name:</label>
@@ -283,6 +283,14 @@
 											placeholder="Product Price" path="prod_price" />
 										<form:errors path="prod_price" cssStyle="color:Red"></form:errors>
 									</div>
+
+									<div class="form-group">
+										<label for="email"> Product Image:</label>
+										<form:input type="file" name="fileToUpload" id="fileToUpload"
+											path="pimage" required="true" class="form-control my-input" />
+										
+									</div>
+
 									<input type="submit" class="form-btn" value="Save" />
 								</form:form>
 
@@ -322,6 +330,7 @@
 										<tr>
 											<th>Product ID</th>
 											<th>Product Name</th>
+											<th>Product Image</th>
 											<th>Product Description</th>
 											<th>Category</th>
 											<th>Product Quantity</th>
@@ -335,12 +344,15 @@
 											<tr class="ok">
 												<td>${p.prod_id}</td>
 												<td>${p.prod_name}</td>
+												<td><img src="resources/pimage/${p.prod_id}.jpg" width="50" height="50"/></td>
 												<td>${p.prod_description}</td>
 												<td>${p.category.cat_Name}</td>
 												<td>${p.prod_quantity}</td>
 												<td>${p.prod_price}</td>
-												<td align="center"><a href="editProduct?prodid=${p.prod_id}" class="btn btn-primary"
-													title="Edit"><i class="fa fa-pencil"></i></a> <a
+												<td align="center"><a
+													href="editProduct?prodid=${p.prod_id}"
+													class="btn btn-primary" title="Edit"><i
+														class="fa fa-pencil"></i></a> <a
 													href="deleteProduct?prodid=${p.prod_id}"
 													class="btn btn-danger" title="delete"><i
 														class="fa fa-trash"></i></a></td>

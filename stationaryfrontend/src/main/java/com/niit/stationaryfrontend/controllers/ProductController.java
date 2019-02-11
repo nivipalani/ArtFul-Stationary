@@ -1,5 +1,9 @@
 package com.niit.stationaryfrontend.controllers;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.niit.stationarybackend.dao.CategoryDao;
 import com.niit.stationarybackend.dao.ProductDao;
@@ -21,6 +26,30 @@ public class ProductController {
 	
 	@Autowired
 	CategoryDao categoryDao;
+	
+	void addimage(MultipartFile f, int id) {
+		try {
+			String path = "C:\\Users\\Admin\\workspace\\stationaryfrontend\\src\\main\\webapp\\resources\\pimage\\";
+			path = path + String.valueOf(id) + ".jpg";
+			if (!f.isEmpty()) {
+				byte[] imagebytes = f.getBytes();
+				File x = new File(path);
+				if (x.exists()) {
+					x.delete();
+					BufferedOutputStream bs = new BufferedOutputStream(new FileOutputStream(x));
+					bs.write(imagebytes);
+					bs.close();
+				} else {
+					BufferedOutputStream bs = new BufferedOutputStream(new FileOutputStream(x));
+					bs.write(imagebytes);
+					bs.close();
+				}
+			}
+			Thread.sleep(5000);
+		} catch (Exception e) {
+
+		}	}	
+
 
 	@RequestMapping("/product")
 	String productPage(Model model) {
@@ -66,6 +95,8 @@ public class ProductController {
 			try {
 				
 				if (productDao.createProduct(product)) {
+					
+					addimage(product.getPimage(), product.getProd_id());
 					model.addAttribute("prodpage", true);
 					model.addAttribute("myproduct",new Product());
 					model.addAttribute("Error1", false);
@@ -182,6 +213,7 @@ public class ProductController {
 			try {
 				
 				if (productDao.updateProduct(product)) {
+					addimage(product.getPimage(), product.getProd_id());
 					model.addAttribute("prodpage", true);
 					model.addAttribute("myproduct",new Product());
 					model.addAttribute("Error1", false);

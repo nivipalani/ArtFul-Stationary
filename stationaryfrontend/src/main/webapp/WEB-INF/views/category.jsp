@@ -204,22 +204,22 @@
 							<div class="form-content">
 								<c:if test="${Success}">
 									<div class="alert alert-success">
-										<strong>Success</strong> Data Inserted in Database
+										<strong>Success</strong> Data Inserted in Database...
 									</div>
 								</c:if>
 								<c:if test="${Error1}">
 									<div class="alert alert-danger">
-										<strong>Danger</strong> Incorrrect Data..Enter Correct Data
+										<strong>Danger</strong> Incorrrect Data...Enter Correct Data...
 									</div>
 								</c:if>
 								<c:if test="${Error2}">
 									<div class="alert alert-warning">
-										<strong>Warning</strong> Data already exists in Database
+										<strong>Warning</strong> Data already exists in Database...
 									</div>
 								</c:if>
 								<c:if test="${Error3}">
 								<div class="alert alert-warning">
-										<strong>Warning</strong>Please contact the Administrater
+										<strong>Warning</strong>Please contact the Administrater...
 									</div>
 								</c:if>
 								

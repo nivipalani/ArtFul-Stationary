@@ -21,12 +21,12 @@ public class HomeController {
 		return "index";
 	}
 	
-	@RequestMapping("/signup")
-	String SignUpPage(Model model)
-	{
-		model.addAttribute("signup",true);
-		return "index";
-	}
+//	@RequestMapping("/signup")
+//	String SignUpPage(Model model)
+//	{
+//		model.addAttribute("signup",true);
+//		return "index";
+//	}
 	
 	@RequestMapping("/contactus")
 	String ContactUsPage(Model model)
