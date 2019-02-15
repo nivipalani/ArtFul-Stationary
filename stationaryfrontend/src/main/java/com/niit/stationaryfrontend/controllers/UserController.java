@@ -20,18 +20,19 @@ public class UserController {
 	UserDao userDao;
 	
 	@RequestMapping("/signup")
-	String categoryPage(Model model) {
+	String userPage(Model model) {
 		model.addAttribute("signup", true);
 		model.addAttribute("myuser", new User());
 		model.addAttribute("Success", false);
 		model.addAttribute("Error1", false);
-		model.addAttribute("Error2", false);
+		model.addAttribute("Error2", false);//user already exists
 		return "index";
 	}
 	
 	
+	
 	@RequestMapping("/addUser")
-	String addCategoryPage(@Valid @ModelAttribute("myuser") User user, BindingResult bindingResult,
+	String addUserPage(@Valid @ModelAttribute("myuser") User user, BindingResult bindingResult,
 			Model model) {
 
 		if (bindingResult.hasErrors()) {
@@ -39,7 +40,7 @@ public class UserController {
 			model.addAttribute("myuser", user);
 			model.addAttribute("Success", false);
 			model.addAttribute("Error1", true);
-			model.addAttribute("Error2", false);
+			model.addAttribute("Error2", false);//user already exists
 
 		}
 
@@ -47,32 +48,31 @@ public class UserController {
 			try {
 				if (userDao.createUser(user)) {
 					model.addAttribute("signup", true);
-					model.addAttribute("myuser", new Category());
+					model.addAttribute("myuser", new User());
 					model.addAttribute("Success", true);
 					model.addAttribute("Error1", false);
-					model.addAttribute("Error2", false);
+					model.addAttribute("Error2", false); //user already exists
 					
 				}
 				else
 				{
 					model.addAttribute("signup", true);
-					model.addAttribute("myuser", new Category());
+					model.addAttribute("myuser", new User());
 					model.addAttribute("Success", false);
 					model.addAttribute("Error1", true);
-					model.addAttribute("Error2", false);
+					model.addAttribute("Error2", false);//user already exists
 				}
 			} catch (Exception e) {
 				model.addAttribute("signup", true);
 				model.addAttribute("myuser", user);
 				model.addAttribute("Success", false);
 				model.addAttribute("Error1", false);
-				model.addAttribute("Error2", true);
+				model.addAttribute("Error2", true);//user already exists
 				
 			}
 
 		}
 		return "index";
 	}
-
 
 }

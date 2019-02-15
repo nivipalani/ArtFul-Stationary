@@ -23,10 +23,10 @@ import com.niit.stationarybackend.model.Product;
 public class ProductController {
 	@Autowired
 	ProductDao productDao;
-	
+
 	@Autowired
 	CategoryDao categoryDao;
-	
+
 	void addimage(MultipartFile f, int id) {
 		try {
 			String path = "C:\\Users\\Admin\\workspace\\stationaryfrontend\\src\\main\\webapp\\resources\\pimage\\";
@@ -48,8 +48,8 @@ public class ProductController {
 			Thread.sleep(5000);
 		} catch (Exception e) {
 
-		}	}	
-
+		}
+	}
 
 	@RequestMapping("/product")
 	String productPage(Model model) {
@@ -93,12 +93,12 @@ public class ProductController {
 
 		else {
 			try {
-				
+
 				if (productDao.createProduct(product)) {
-					
+
 					addimage(product.getPimage(), product.getProd_id());
 					model.addAttribute("prodpage", true);
-					model.addAttribute("myproduct",new Product());
+					model.addAttribute("myproduct", new Product());
 					model.addAttribute("Error1", false);
 					model.addAttribute("Success", true);
 					model.addAttribute("Error2", false);
@@ -106,9 +106,7 @@ public class ProductController {
 					model.addAttribute("category_list", categoryDao.selectAllCategory());
 					model.addAttribute("Error3", false);
 					model.addAttribute("edit", false);
-				}
-				else
-				{
+				} else {
 					model.addAttribute("prodpage", true);
 					model.addAttribute("myproduct", product);
 					model.addAttribute("Error1", false);
@@ -118,10 +116,9 @@ public class ProductController {
 					model.addAttribute("category_list", categoryDao.selectAllCategory());
 					model.addAttribute("Error3", true);
 					model.addAttribute("edit", false);
-				
-					
+
 				}
-				
+
 			} catch (Exception e) {
 				model.addAttribute("prodpage", true);
 				model.addAttribute("myproduct", product);
@@ -137,16 +134,13 @@ public class ProductController {
 		}
 		return "index";
 	}
-	
+
 	@RequestMapping("/deleteProduct")
-	String deleteProductPage(@RequestParam("prodid")int prod_Id,Model model)
-	{
-		try
-		{
-			if(productDao.deleteProduct(productDao.selectOneProduct(prod_Id)))
+	String deleteProductPage(@RequestParam("prodid") int prod_Id, Model model) {
+		try {
+			if (productDao.deleteProduct(productDao.selectOneProduct(prod_Id)))
 				return "redirect:/product";
-			else
-			{
+			else {
 				model.addAttribute("prodpage", true);
 				model.addAttribute("myproduct", new Product());
 				model.addAttribute("Error1", false);
@@ -158,10 +152,8 @@ public class ProductController {
 				model.addAttribute("edit", false);
 				return "index";
 			}
-			
-		}
-		catch(Exception e)
-		{
+
+		} catch (Exception e) {
 			model.addAttribute("prodpage", true);
 			model.addAttribute("myproduct", new Product());
 			model.addAttribute("Error1", false);
@@ -172,14 +164,13 @@ public class ProductController {
 			model.addAttribute("Error3", true);
 			model.addAttribute("edit", false);
 			return "index";
-			
+
 		}
-		
+
 	}
-	
 
 	@RequestMapping("/editProduct")
-	String productPage(@RequestParam("prodid")int prod_Id,Model model) {
+	String productPage(@RequestParam("prodid") int prod_Id, Model model) {
 		model.addAttribute("prodpage", true);
 		model.addAttribute("myproduct", productDao.selectOneProduct(prod_Id));
 		model.addAttribute("Error1", false);
@@ -191,7 +182,7 @@ public class ProductController {
 		model.addAttribute("edit", true);
 		return "index";
 	}
-	
+
 	@RequestMapping("/updateProduct")
 	String updateProductPage(@Valid @ModelAttribute("myproduct") Product product, BindingResult bindingResult,
 			Model model) {
@@ -211,11 +202,11 @@ public class ProductController {
 
 		else {
 			try {
-				
+
 				if (productDao.updateProduct(product)) {
 					addimage(product.getPimage(), product.getProd_id());
 					model.addAttribute("prodpage", true);
-					model.addAttribute("myproduct",new Product());
+					model.addAttribute("myproduct", new Product());
 					model.addAttribute("Error1", false);
 					model.addAttribute("Success", true);
 					model.addAttribute("Error2", false);
@@ -223,9 +214,7 @@ public class ProductController {
 					model.addAttribute("category_list", categoryDao.selectAllCategory());
 					model.addAttribute("Error3", false);
 					model.addAttribute("edit", false);
-				}
-				else
-				{
+				} else {
 					model.addAttribute("prodpage", true);
 					model.addAttribute("myproduct", product);
 					model.addAttribute("Error1", false);
@@ -235,10 +224,9 @@ public class ProductController {
 					model.addAttribute("category_list", categoryDao.selectAllCategory());
 					model.addAttribute("Error3", true);
 					model.addAttribute("edit", true);
-				
-					
+
 				}
-				
+
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 				model.addAttribute("prodpage", true);
@@ -255,7 +243,22 @@ public class ProductController {
 		}
 		return "index";
 	}
-	
 
+	@RequestMapping("/viewallproduct")
+	public String viewAllProducts(Model model) {
+		model.addAttribute("allproductpage", true);
+		model.addAttribute("productlist", productDao.selectAllProduct());
+		model.addAttribute("categorylist", categoryDao.selectAllCategory());
+		return "index";
+	}
+
+	@RequestMapping("/viewoneproduct")
+	public String oneproductpage(Model model, @RequestParam("pid") int pid) {
+		model.addAttribute("oneproductpage", true);
+		//model.addAttribute("title", "GiftGalore-Products");
+		model.addAttribute("prod", productDao.selectOneProduct(pid));
+		return "index";
+
+	}
 
 }

@@ -121,6 +121,10 @@
             <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="resources/images/stationary.jpg" />
         </div>
         <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1280px;height:380px;overflow:hidden;">
+         <div>
+                <img data-u="image" src="resources/images/img2.jpg" />
+                <div data-t="4" style="position:absolute;top:30px;left:30px;width:500px;height:40px;font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;background-color:rgba(255,188,5,0.8);">You are the creator at your own destiny</div>
+            </div>
             <div>
                 <img data-u="image" src="resources/images/pencil.jpg" />
                 <div data-t="0" style="position:absolute;top:320px;left:30px;width:500px;height:40px;font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;background-color:rgba(255,188,5,0.8);">Artful Stationary</div>
@@ -141,10 +145,7 @@
                 <img data-u="image" src="resources/images/file1.jpg" />
                 <div data-t="3" style="position:absolute;top:30px;left:30px;width:500px;height:40px;font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;background-color:rgba(255,188,5,0.8);">Back to School</div>
             </div>
-            <div>
-                <img data-u="image" src="resources/images/img2.jpg" />
-                <div data-t="4" style="position:absolute;top:30px;left:30px;width:500px;height:40px;font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;background-color:rgba(255,188,5,0.8);">You are the creator of your own destiny</div>
-            </div>
+           
             <div>
                 <img data-u="image" src="resources/images/stat2.jpg" />
                 <div data-t="6" style="position:absolute;top:30px;left:30px;width:500px;height:40px;font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;background-color:rgba(255,188,5,0.8);">Stationary Appliances</div>

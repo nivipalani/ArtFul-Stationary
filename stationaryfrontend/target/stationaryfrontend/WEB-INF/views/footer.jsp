@@ -90,12 +90,12 @@ section .section-title {
 }
 </style>
 <section id="footer">
-	<div class="container">
+	<div class="container" >
 		<div class="row text-center text-xs-center text-sm-left text-md-left">
 		</div>
 		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
-				<font color="#ffffff"><center>Address: 7, Street #12, Gandhi Park, Laxmi Nagar, Coimbatore - 641016</center>
+			<div class=" col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5 col-md-8 form">
+				<font color="#ffffff" face="Monotype Corsiva"><center>Address: 7, Street #12, Gandhi Park, Laxmi Nagar, Coimbatore - 641016</center>
 				<center>Phone: +91-11-8810343286 </center>
 				<center>Email: support@artfulstationeryp.in</center> 
 				<center>Working Hours/Days: 24/7</center></font>
@@ -111,16 +111,19 @@ section .section-title {
 					<li class="list-inline-item"><a href="javascript:void();"
 						target="_blank"><i class="fa fa-envelope"></i></a></li>
 				</ul>
+				</font>
 			</div>
 			</hr>
 		</div>
 		<div class="row">
 			<div
 				class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+				<font face="Monotype Corsiva">
 				<p class="h6">
 					&copy All right Reversed.<a class="text-green ml-2"
 						href="https://www.sunlimetech.com" target="_blank">ArtfulStationary</a>
 				</p>
+				</font>
 			</div>
 			</hr>
 		</div>

@@ -36,10 +36,18 @@
 		<c:if test="${catpage}">
 			<jsp:include page="category.jsp" />
 		</c:if>
+		<c:if test="${supplierpage}">
+			<jsp:include page="supplier.jsp" />
+		</c:if>
 		<c:if test="${prodpage}">
 		<jsp:include page="product.jsp" />
 		</c:if>
-
+		<c:if test="${allproductpage}">
+		<jsp:include page="viewallproduct.jsp" />
+		</c:if>
+		<c:if test="${oneproductpage}">
+		<jsp:include page="viewoneproduct.jsp" />
+		</c:if>
 
 	</div>
 	<jsp:include page="footer.jsp" />
