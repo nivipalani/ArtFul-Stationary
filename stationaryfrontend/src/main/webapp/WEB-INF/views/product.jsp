@@ -197,24 +197,26 @@
 					<div class="form-card">
 						<div class="form">
 							<div class="form-content">
+
 								<c:if test="${Success}">
 									<div class="alert alert-success">
-										<strong>Success</strong> Data Inserted in Database
-									</div>
+											<strong>Success</strong> Data Inserted...
+										</div>
 								</c:if>
+
 								<c:if test="${Error1}">
 									<div class="alert alert-danger">
-										<strong>Danger</strong> Incorrrect Data..Enter Correct Data
+										<strong>Danger</strong> Incorrect Data...
 									</div>
 								</c:if>
 								<c:if test="${Error2}">
 									<div class="alert alert-warning">
-										<strong>Warning</strong> Data already exists in Database
+										<strong>Warning</strong> Data already exists in Database...
 									</div>
 								</c:if>
 								<c:if test="${Error3}">
 									<div class="alert alert-warning">
-										<strong>Warning</strong>Please contact the Administrater
+										<strong>Warning</strong>Please contact the Administrator...
 									</div>
 								</c:if>
 
@@ -288,7 +290,7 @@
 										<label for="email"> Product Image:</label>
 										<form:input type="file" name="fileToUpload" id="fileToUpload"
 											path="pimage" required="true" class="form-control my-input" />
-										
+
 									</div>
 
 									<input type="submit" class="form-btn" value="Save" />
@@ -344,7 +346,8 @@
 											<tr class="ok">
 												<td>${p.prod_id}</td>
 												<td>${p.prod_name}</td>
-												<td><img src="resources/pimage/${p.prod_id}.jpg" width="50" height="50"/></td>
+												<td><img src="resources/pimage/${p.prod_id}.jpg"
+													width="50" height="50" /></td>
 												<td>${p.prod_description}</td>
 												<td>${p.category.cat_Name}</td>
 												<td>${p.prod_quantity}</td>

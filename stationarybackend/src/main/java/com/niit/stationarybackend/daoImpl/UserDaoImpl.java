@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.stationarybackend.dao.UserDao;
 import com.niit.stationarybackend.model.User;
+import com.niit.stationarybackend.model.UserCred;
 
 @Repository("userDao")
 @Transactional
@@ -20,7 +21,13 @@ public class UserDaoImpl implements UserDao {
 		// TODO Auto-generated method stub
 		try
 		{
+			UserCred usercred=new UserCred();
+			usercred.setU_Emailid(user.getU_Emailid());
+			usercred.setU_Password(user.getU_password());
+			usercred.setU_role("Role_User");
+			usercred.setU_status("True");
 			sessionFactory.getCurrentSession().save(user);
+			sessionFactory.getCurrentSession().save(usercred);
 			return true;
 		
 		}
@@ -51,6 +58,7 @@ public class UserDaoImpl implements UserDao {
 		try
 		{
 			sessionFactory.getCurrentSession().delete(user);
+			sessionFactory.getCurrentSession().delete(user.getU_Emailid(), UserCred.class);
 			return true;
 		
 		}
@@ -61,27 +69,27 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 
-	public List<User> selectAllUser() {
-		// TODO Auto-generated method stub
-		try
-		{
-			
-			return sessionFactory.getCurrentSession().createQuery("from User").list();
-		
-		}
-		catch(Exception e)
-		{
-			System.out.println(e.getMessage());
-			return null;
-		}
-	}
+//	public List<User> selectAllUser() {
+//		// TODO Auto-generated method stub
+//		try
+//		{
+//			
+//			return sessionFactory.getCurrentSession().createQuery("from User").list();
+//		
+//		}
+//		catch(Exception e)
+//		{
+//			System.out.println(e.getMessage());
+//			return null;
+//		}
+//	}
 
-	public User selectOneUser(int user_id) {
+	public User selectOneUser(String user_emailid) {
 		// TODO Auto-generated method stub
 		try
 		{
 			
-			return (User)sessionFactory.getCurrentSession().createQuery("from User where u_Id="+user_id).uniqueResult();
+			return (User)sessionFactory.getCurrentSession().createQuery("from User where u_emailid="+user_emailid).uniqueResult();
 		
 		}
 		catch(Exception e)

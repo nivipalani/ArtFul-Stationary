@@ -1,7 +1,6 @@
 com\niit\stationarybackend\DBConfig.class
 com\niit\stationarybackend\daoImpl\ProductDaoImpl.class
 com\niit\stationarybackend\dao\CategoryDao.class
-com\niit\stationarybackend\daoImpl\UserCredDaoImpl.class
 com\niit\stationarybackend\daoImpl\CategoryDaoImpl.class
 com\niit\stationarybackend\model\UserCred.class
 com\niit\stationarybackend\model\Category.class
@@ -9,5 +8,7 @@ com\niit\stationarybackend\dao\ProductDao.class
 com\niit\stationarybackend\dao\UserDao.class
 com\niit\stationarybackend\daoImpl\UserDaoImpl.class
 com\niit\stationarybackend\model\User.class
+com\niit\stationarybackend\dao\SupplierDao.class
+com\niit\stationarybackend\daoImpl\SupplierDaoImpl.class
 com\niit\stationarybackend\model\Product.class
-com\niit\stationarybackend\dao\UserCredDao.class
+com\niit\stationarybackend\model\Supplier.class

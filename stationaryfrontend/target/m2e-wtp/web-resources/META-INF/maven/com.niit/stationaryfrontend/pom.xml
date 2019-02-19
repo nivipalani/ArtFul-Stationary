@@ -32,11 +32,6 @@
 
 
 
-		<dependency>
-			<groupId>com.niit</groupId>
-			<artifactId>stationarybackend</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-io -->
 		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
 		<dependency>
@@ -53,6 +48,11 @@
 		</dependency>
 
 
+		<dependency>
+			<groupId>com.niit</groupId>
+			<artifactId>stationarybackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>stationaryfrontend</finalName>

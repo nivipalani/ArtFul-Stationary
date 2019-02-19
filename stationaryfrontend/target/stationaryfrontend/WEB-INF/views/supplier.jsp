@@ -227,20 +227,17 @@
 								</c:if>
 
 								<form:form action="${url}" modelAttribute="mysupplier"
-									method="Post" enctype="multipart/form-data">
+									method="Post">
 									<div class="form-group">
-										<center>
-											<b><label><font size="5">Supplier</font> </label><b>
-										</center>
+											<label><font size="5">Supplier</font> </label>
 									</div>
 
 									<c:if test="${edit}">
 										<div class="form-group">
 											<label for="email"> Supplier ID:</label>
 											<form:input type="text" name="sup_id"
-												class="form-control my-input" id="id"
-												placeholder="Product ID" path="prod_id" readonly="true" />
-
+ 												class="form-control my-input" id="id" 
+												placeholder="Supplier ID" path="supplier_Id" readonly="true" /> 
 										</div>
 									</c:if>
 
@@ -251,31 +248,38 @@
 											placeholder="Supplier Name" path="supplier_Name" />
 										<form:errors path="supplier_Name" cssStyle="color:Red"></form:errors>
 									</div>
+<!-- 									<div class="form-group"> -->
+<!-- 										<label for="email"> Product:</label> -->
+<%-- 										<form:select path="category.cat_Id" class="form-control"> --%>
+<%-- 											<form:option value="0">Select Product</form:option> --%>
+<%-- 											<c:forEach items="${supplier_list}" var="s"> --%>
+<%-- 												<form:option value="${s.prod_id}">${s.prod_name}</form:option> --%>
+<%-- 											</c:forEach> --%>
+<%-- 										</form:select> --%>
+<!-- 									</div> -->
+
 									<div class="form-group">
-										<label for="email"> Product:</label>
-										<form:select path="category.cat_Id" class="form-control">
-											<form:option value="0">Select Product</form:option>
-											<c:forEach items="${supplier_list}" var="s">
-												<form:option value="${s.prod_id}">${s.prod_name}</form:option>
-											</c:forEach>
-										</form:select>
-									</div>
-									<div class="form-group">
-										<label>Quantity:</label>
-										<form:textarea name="desc" class="form-control" id="iq"
-											placeholder="Quantity" path="s_quantity" />
-										<form:errors path="s_quantity" cssStyle="color:Red"></form:errors>
+										<label>Location:</label>
+										<form:input name="location" class="form-control my-input" id="iq"
+											placeholder="Location" path="location" />
+										<form:errors path="location" cssStyle="color:Red"></form:errors>
 									</div>
 									
 
-
-								
 									<div class="form-group">
-										<label for="email"> Price:</label>
-										<form:input type="text" name="prod_price"
+										<label for="email"> Phone Number:</label>
+										<form:input type="text" name="Phone_Number"
 											class="form-control my-input" id="name"
-											placeholder="Price" path="s_price" />
-										<form:errors path="s_price" cssStyle="color:Red"></form:errors>
+											placeholder="Phone Number" path="supplier_phonenumber" />
+										<form:errors path="supplier_phonenumber" cssStyle="color:Red"></form:errors>
+									</div>
+									
+									<div class="form-group">
+										<label for="email"> Email ID:</label>
+										<form:input type="text" name="emailid"
+											class="form-control my-input" id="name"
+											placeholder="EmailID" path="supplier_emailid" />
+										<form:errors path="supplier_emailid" cssStyle="color:Red"></form:errors>
 									</div>
 
 								
@@ -292,12 +296,12 @@
 		</div>
 	</div>
 
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.1/css/font-awesome.min.css">
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootswatch/4.1.1/lumen/bootstrap.min.css">
-	<link rel="stylesheet"
-		href="https://daneden.github.io/animate.css/animate.min.css">
+<!-- 	<link rel="stylesheet" -->
+<!-- 		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.1/css/font-awesome.min.css"> -->
+<!-- 	<link rel="stylesheet" -->
+<!-- 		href="https://maxcdn.bootstrapcdn.com/bootswatch/4.1.1/lumen/bootstrap.min.css"> -->
+<!-- 	<link rel="stylesheet" -->
+<!-- 		href="https://daneden.github.io/animate.css/animate.min.css"> -->
 	<div class="container" style="margin-top: 20px;">
 		<div class="row">
 			<div id="user" class="col-md-12">
@@ -319,28 +323,26 @@
 										<tr>
 											<th>Supplier ID</th>
 											<th>Supplier Name</th>
-											
-											
-											<th>Product</th>
-											<th>Supplied Quantity</th>
-											<th>Price</th>
+ 											<th>Location</th>
+											<th>Phone Number</th>
+											<th>Email ID</th>
 
 											<th><em class="fa fa-cog"></em></th>
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach items="${product_list}" var="s">
+										<c:forEach items="${supplier_list}" var="s">
 											<tr class="ok">
-												<td>${s.supplier_id}</td>
-												<td>${s.supplier_name}</td>
-												<td>${s.supplied_product.prod_Name}</td>
-												<td>${s.s_quantity}</td>
-												<td>${s.s_price}</td>
+												<td>${s.supplier_Id}</td>
+												<td>${s.supplier_Name}</td>
+ 												<td>${s.location}</td> 
+												<td>${s.supplier_phonenumber}</td>
+												<td>${s.supplier_emailid}</td>
 												<td align="center"><a
-													href="editSupplier?prodid=${s.supplier_id}"
+													href="editSupplier?supid=${s.supplier_Id}"
 													class="btn btn-primary" title="Edit"><i
 														class="fa fa-pencil"></i></a> <a
-													href="deleteSupplier?prodid=${s.supplier_id}"
+													href="deleteSupplier?supid=${s.supplier_Id}"
 													class="btn btn-danger" title="delete"><i
 														class="fa fa-trash"></i></a></td>
 											</tr>

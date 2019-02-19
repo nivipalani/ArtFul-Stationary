@@ -32,20 +32,14 @@ public class SupplierController {
 		return "index";
 	}
 
-	// @RequestMapping("/addCategory")
-	// String insertCategory(@ModelAttribute("mycategory")Category
-	// category,Model model)
-	// {
-	// categoryDao.createCategory(category);
-	// model.addAttribute("catpage", true);
-	// return "index";
-	// }
+
 
 	@RequestMapping("/addSupplier")
 	String insertSupplierPage(@Valid @ModelAttribute("mysupplier") Supplier supplier, BindingResult bindingResult,
 			Model model) {
 
 		if (bindingResult.hasErrors()) {
+			System.out.println(bindingResult.toString());
 			model.addAttribute("supplierpage", true);
 			model.addAttribute("mysupplier", supplier);
 			model.addAttribute("Error1", true);
@@ -56,7 +50,6 @@ public class SupplierController {
 			model.addAttribute("edit", false);
 
 		}
-
 		else {
 			try {
 				if (supplierDao.createSupplier(supplier)) {
@@ -100,8 +93,8 @@ public class SupplierController {
 	{
 		try
 		{
-			if(supplierDao.deleteSupplier(supplierDao.selectOneSupplier(sup_Id)))
-			return "redirect:/supplier";
+			if(supplierDao.deleteSupplier(supplierDao.selectOneSupplier(sup_Id)))			
+			return "redirect:/supplier";			
 			else
 			{
 				model.addAttribute("supplierpage", true);
@@ -113,8 +106,7 @@ public class SupplierController {
 				model.addAttribute("Error3", true);
 				model.addAttribute("edit", false);
 				return "index";
-			}
-			
+			}			
 		}
 		catch(Exception e)
 		{
@@ -134,7 +126,7 @@ public class SupplierController {
 	
 	
 	@RequestMapping("/editSupplier")
-	String editSupplierPage(@RequestParam("supid")int sup_Id,Model model) {
+	String editSupplierPage(@RequestParam("supid")int sup_Id, Model model) {
 		model.addAttribute("supplierpage", true);
 		model.addAttribute("mysupplier", supplierDao.selectOneSupplier(sup_Id));
 		model.addAttribute("Error1", false);
@@ -145,6 +137,7 @@ public class SupplierController {
 		model.addAttribute("edit", true);
 		return "index";
 	}
+	
 	
 	@RequestMapping("/updateSupplier")
 	String updateSupplierPage(@Valid @ModelAttribute("mysupplier") Supplier supplier, BindingResult bindingResult,
@@ -166,7 +159,7 @@ public class SupplierController {
 			try {
 				if (supplierDao.updateSupplier(supplier)) {
 					model.addAttribute("supplierpage", true);
-					model.addAttribute("mysuppliery", new Supplier());
+					model.addAttribute("mysupplier", new Supplier());
 					model.addAttribute("Error1", false);
 					model.addAttribute("Success", true);
 					model.addAttribute("Error2", false);

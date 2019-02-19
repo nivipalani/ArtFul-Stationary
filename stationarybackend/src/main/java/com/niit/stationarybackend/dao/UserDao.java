@@ -8,7 +8,7 @@ public interface UserDao {
 	boolean createUser(User user);
 	boolean updateUser(User user);
 	boolean deleteUser(User user);
-	List<User> selectAllUser();
-	User selectOneUser(int user_Id);
+	//List<User> selectAllUser();
+	User selectOneUser(String user_emailid);
 
 }
