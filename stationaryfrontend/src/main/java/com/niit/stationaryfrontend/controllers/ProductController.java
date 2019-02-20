@@ -247,8 +247,8 @@ public class ProductController {
 	@RequestMapping("/viewallproduct")
 	public String viewAllProducts(Model model) {
 		model.addAttribute("allproductpage", true);
-		model.addAttribute("productlist", productDao.selectAllProduct());
-		model.addAttribute("categorylist", categoryDao.selectAllCategory());
+		model.addAttribute("myproduct", new Product());
+		model.addAttribute("product_list", productDao.selectAllProduct());
 		return "index";
 	}
 
@@ -256,7 +256,7 @@ public class ProductController {
 	public String oneproductpage(Model model, @RequestParam("pid") int pid) {
 		model.addAttribute("oneproductpage", true);
 		//model.addAttribute("title", "GiftGalore-Products");
-		model.addAttribute("prod", productDao.selectOneProduct(pid));
+		model.addAttribute("myproduct", productDao.selectOneProduct(pid));
 		return "index";
 
 	}

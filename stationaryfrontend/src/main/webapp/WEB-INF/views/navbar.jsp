@@ -97,7 +97,6 @@ a, a:hover,a:focus{
                                 <li><a href="product"><span>Product</span></a></li>
                                 <li><a href="supplier"><span>Supplier</span></a></li>
                                 <li><a href="viewallproduct"><span>View All Products</span></a></li>
-                                <li><a href="viewoneproduct"><span>View One Products</span></a></li>
                             </ul>
                         </div>
                     </div>
