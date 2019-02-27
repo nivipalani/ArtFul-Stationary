@@ -22,11 +22,11 @@ public class SupplierDaoImpl implements SupplierDao {
 	public boolean createSupplier(Supplier supplier) {
 		// TODO Auto-generated method stub
 		try {
-			UserCred usercred=new UserCred();
+			UserCred usercred = new UserCred();
 			usercred.setU_Emailid(supplier.getSupplier_emailid());
 			usercred.setU_Password(supplier.getSupplier_password());
-			usercred.setU_role("Role_Admin");
-			usercred.setU_status("True");
+			usercred.setU_role("ROLE_ADMIN");
+			usercred.setU_status("true");
 			sessionFactory.getCurrentSession().save(supplier);
 			sessionFactory.getCurrentSession().save(usercred);
 			return true;
@@ -55,7 +55,7 @@ public class SupplierDaoImpl implements SupplierDao {
 		// TODO Auto-generated method stub
 		try {
 			sessionFactory.getCurrentSession().delete(supplier);
-			sessionFactory.getCurrentSession().delete(supplier.getSupplier_emailid(),UserCred.class);
+			sessionFactory.getCurrentSession().delete(supplier.getSupplier_emailid(), UserCred.class);
 			return true;
 
 		} catch (Exception e) {
@@ -75,11 +75,11 @@ public class SupplierDaoImpl implements SupplierDao {
 		}
 	}
 
-	public Supplier selectOneSupplier(int supplier_id) {
+	public Supplier selectOneSupplier(String s_emailId) {
 		// TODO Auto-generated method stub
 		try {
 			return (Supplier) sessionFactory.getCurrentSession()
-					.createQuery("from Supplier where sup_id=" + supplier_id).uniqueResult();
+					.createQuery("from Supplier where supplier_emailid='" + s_emailId + "'").uniqueResult();
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

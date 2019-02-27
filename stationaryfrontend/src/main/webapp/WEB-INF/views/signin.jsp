@@ -202,33 +202,39 @@
 					<div class="form-card">
 						<div class="form">
 							<div class="form-content">
+							
+							<c:if test="${error}">
+							<div class="alert alert-danger">
+										<Strong>Danger!</Strong> UserName and Password does not match...
+									</div>
+							</c:if>
 
-								<form>
-									<div class="form-group">
-										<center>
-											<b><label><font size="5">SignIn... .</font> </label><b>
-										</center>
+								<form action="perform_login" method="Post">
+									<div class="form-group" style="font-weight: bold; text-align:center">
+										
+											<label><font size="5">SignIn... .</font> </label>
+									
 									</div>
 
 									<div class="form-group">
-										<label>Your EmailID/UserName:</label> <input type="text"
-											name="desc" class="form-control" id="iq"
-											placeholder="EmailID/UserName" />
+										<label>EmailID:</label> <input type="text"
+											name="user_name" class="form-control" id="user_name"
+											placeholder="EmailID" />
 
 
 									</div>
 
 
 									<div class="form-group">
-										<label>Password:</label> <input type="password" name="desc"
-											class="form-control" id="iq" placeholder="Password" />
+										<label>Password:</label> <input type="password"
+											name="user_password" class="form-control" id="user_password"
+											placeholder="Password" />
 
-										<form:errors path="u_password" cssStyle="color:Red"></form:errors>
 									</div>
 
 
 
-									<input type="submit" class="form-btn" value="Register">
+									<input type="submit" class="form-btn" value="Login">
 
 								</form>
 							</div>
@@ -253,5 +259,4 @@
 
 		</div>
 	</div>
-</div>
 </div>

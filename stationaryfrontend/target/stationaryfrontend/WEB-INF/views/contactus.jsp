@@ -1,5 +1,4 @@
-<html>
-<head>
+
 <style>
 /*Font-awesome integration*/
 @import
@@ -47,8 +46,6 @@
 }
 </style>
 
-</head>
-<body>
 	<section id="contact">
 		<div class="container">
 			<div class="well well-sm">
@@ -95,5 +92,3 @@
 			</div>
 		</div>
 	</section>
-</body>
-</html>

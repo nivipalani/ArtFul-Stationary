@@ -1,5 +1,6 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="cr" value="${pageContext.request.contextPath}"/>
 
 <style>
 /*By DjelalEddine@gmail.com*/
@@ -204,48 +205,49 @@
 							<div class="form-content">
 								<c:if test="${Success}">
 									<div class="alert alert-success">
-										<strong>Success</strong> Data Inserted in Database...
+										<strong>Success!</strong> Data Inserted in Database...
 									</div>
 								</c:if>
 								<c:if test="${Error1}">
 									<div class="alert alert-danger">
-										<strong>Danger</strong> Incorrrect Data...Enter Correct Data...
+										<strong>Danger!</strong> Incorrect Data...Enter Correct
+										Data...
 									</div>
 								</c:if>
 								<c:if test="${Error2}">
 									<div class="alert alert-warning">
-										<strong>Warning</strong> Data already exists in Database...
+										<strong>Warning!</strong> Data already exists in Database...
 									</div>
 								</c:if>
 								<c:if test="${Error3}">
-								<div class="alert alert-warning">
-										<strong>Warning</strong>Please contact the Administrater...
+									<div class="alert alert-warning">
+										<strong>Warning!</strong>Please contact the Administrator...
 									</div>
 								</c:if>
-								
+
 								<c:if test="${edit}">
-								<c:set var="url" value="updateCategory"></c:set>
+									<c:set var="url" value="${cr}/admin/updateCategory"></c:set>
 								</c:if>
-								
+
 								<c:if test="${!edit}">
-								<c:set var="url" value="addCategory"></c:set>
+									<c:set var="url" value="${cr}/admin/addCategory"></c:set>
 								</c:if>
 
 								<form:form action="${url}" modelAttribute="mycategory"
 									method="Post">
-									<div class="form-group">
-										<center>
-											<b><label><font size="5">CATEGORY PAGE</font> </label><b>
-										</center>
+									<div class="form-group" style="font-weight: bold; text-align:center">
+									
+											<label><font size="5">Category</font> </label>
+									
 									</div>
 									<c:if test="${edit}">
-									<div class="form-group">
-										<label for="email"> Category ID:</label>
-										<form:input type="text" name="cat_id"
-											class="form-control my-input" id="id"
-											placeholder="Category ID" path="cat_Id" readonly="true" />
-											
-									</div>
+										<div class="form-group">
+											<label for="email"> Category ID:</label>
+											<form:input type="text" name="cat_id"
+												class="form-control my-input" id="id"
+												placeholder="Category ID" path="cat_Id" readonly="true" />
+
+										</div>
 									</c:if>
 
 									<div class="form-group">
@@ -253,7 +255,7 @@
 										<form:input type="text" name="cat_name"
 											class="form-control my-input" id="name"
 											placeholder="Category Name" path="cat_Name" />
-											<form:errors path="cat_Name" cssStyle="color:Red"></form:errors>
+										<form:errors path="cat_Name" cssStyle="color:Red"></form:errors>
 									</div>
 
 
@@ -261,7 +263,7 @@
 										<label>Category Description</label>
 										<form:textarea name="desc" class="form-control" id="iq"
 											placeholder="Category Description" path="cat_Description" />
-										</textarea>
+										
 										<form:errors path="cat_Description" cssStyle="color:Red"></form:errors>
 									</div>
 									<input type="submit" class="form-btn" value="Save">
@@ -308,9 +310,11 @@
 											<td>${c.cat_Id}</td>
 											<td>${c.cat_Name}</td>
 											<td>${c.cat_Description}</td>
-											<td align="center"><a href="editCategory?catid=${c.cat_Id}" class="btn btn-primary"
-												title="Edit"><i class="fa fa-pencil"></i></a> 
-												<a href="deleteCategory?catid=${c.cat_Id}"
+											<td align="center"><a
+												href="${cr}/admin/editCategory?catid=${c.cat_Id}"
+												class="btn btn-primary" title="Edit"><i
+													class="fa fa-pencil"></i></a> <a
+												href="${cr}/admin/deleteCategory?catid=${c.cat_Id}"
 												class="btn btn-danger" title="delete"><i
 													class="fa fa-trash"></i></a></td>
 										</tr>
@@ -329,5 +333,4 @@
 
 		</div>
 	</div>
-</div>
 </div>

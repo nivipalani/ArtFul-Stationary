@@ -14,6 +14,7 @@ import com.niit.stationarybackend.dao.CategoryDao;
 import com.niit.stationarybackend.model.Category;
 
 @Controller
+@RequestMapping("/admin")
 public class CategoryController {
 
 	@Autowired

@@ -110,7 +110,6 @@ a:hover, a:active {
 </style>
 <body>
 
-<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 
 <div class="aboutus-section">
         <div class="container">

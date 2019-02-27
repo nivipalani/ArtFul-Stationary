@@ -19,7 +19,7 @@ public class SupplierController {
 	@Autowired
 	SupplierDao supplierDao;
 
-	@RequestMapping("/supplier")
+	@RequestMapping("/rsupplier")
 	String categoryPage(Model model) {
 		model.addAttribute("supplierpage", true);
 		model.addAttribute("mysupplier", new Supplier());
@@ -31,8 +31,6 @@ public class SupplierController {
 		model.addAttribute("edit", false);
 		return "index";
 	}
-
-
 
 	@RequestMapping("/addSupplier")
 	String insertSupplierPage(@Valid @ModelAttribute("mysupplier") Supplier supplier, BindingResult bindingResult,
@@ -49,8 +47,7 @@ public class SupplierController {
 			model.addAttribute("Error3", false);
 			model.addAttribute("edit", false);
 
-		}
-		else {
+		} else {
 			try {
 				if (supplierDao.createSupplier(supplier)) {
 					model.addAttribute("supplierpage", true);
@@ -61,114 +58,7 @@ public class SupplierController {
 					model.addAttribute("supplier_list", supplierDao.selectAllSupplier());
 					model.addAttribute("Error3", false);
 					model.addAttribute("edit", false);
-				}
-				else
-				{
-					model.addAttribute("supplierpage", true);
-					model.addAttribute("mysupplier", new Supplier());
-					model.addAttribute("Error1", false);
-					model.addAttribute("Success", false);
-					model.addAttribute("Error2", false);
-					model.addAttribute("supplier_list", supplierDao.selectAllSupplier());
-					model.addAttribute("Error3", true);
-					model.addAttribute("edit", false);
-				}
-			} catch (Exception e) {
-				model.addAttribute("supplierpage", true);
-				model.addAttribute("mysupplier", supplier);
-				model.addAttribute("Error1", false);
-				model.addAttribute("Success", false);
-				model.addAttribute("Error2", true);
-				model.addAttribute("supplier_list", supplierDao.selectAllSupplier());
-				model.addAttribute("Error3", false);
-				model.addAttribute("edit", false);
-			}
-
-		}
-		return "index";
-	}
-	
-	@RequestMapping("/deleteSupplier")
-	String deleteSupplierPage(@RequestParam("supid")int sup_Id,Model model)
-	{
-		try
-		{
-			if(supplierDao.deleteSupplier(supplierDao.selectOneSupplier(sup_Id)))			
-			return "redirect:/supplier";			
-			else
-			{
-				model.addAttribute("supplierpage", true);
-				model.addAttribute("mysupplier", new Supplier());
-				model.addAttribute("Error1", false);
-				model.addAttribute("Success", false);
-				model.addAttribute("Error2", false);
-				model.addAttribute("supplier_list", supplierDao.selectAllSupplier());
-				model.addAttribute("Error3", true);
-				model.addAttribute("edit", false);
-				return "index";
-			}			
-		}
-		catch(Exception e)
-		{
-			model.addAttribute("supplierpage", true);
-			model.addAttribute("mysupplier", new Supplier());
-			model.addAttribute("Error1", false);
-			model.addAttribute("Success", false);
-			model.addAttribute("Error2", false);
-			model.addAttribute("supplier_list", supplierDao.selectAllSupplier());
-			model.addAttribute("Error3", true);
-			model.addAttribute("edit", false);
-			return "index";
-			
-		}
-		
-	}
-	
-	
-	@RequestMapping("/editSupplier")
-	String editSupplierPage(@RequestParam("supid")int sup_Id, Model model) {
-		model.addAttribute("supplierpage", true);
-		model.addAttribute("mysupplier", supplierDao.selectOneSupplier(sup_Id));
-		model.addAttribute("Error1", false);
-		model.addAttribute("Success", false);
-		model.addAttribute("Error2", false);
-		model.addAttribute("supplier_list", supplierDao.selectAllSupplier());
-		model.addAttribute("Error3", false);
-		model.addAttribute("edit", true);
-		return "index";
-	}
-	
-	
-	@RequestMapping("/updateSupplier")
-	String updateSupplierPage(@Valid @ModelAttribute("mysupplier") Supplier supplier, BindingResult bindingResult,
-			Model model) {
-
-		if (bindingResult.hasErrors()) {
-			model.addAttribute("supplierpage", true);
-			model.addAttribute("mysupplier", supplier);
-			model.addAttribute("Error1", true);
-			model.addAttribute("Success", false);
-			model.addAttribute("Error2", false);
-			model.addAttribute("supplier_list", supplierDao.selectAllSupplier());
-			model.addAttribute("Error3", false);
-			model.addAttribute("edit", false);
-
-		}
-
-		else {
-			try {
-				if (supplierDao.updateSupplier(supplier)) {
-					model.addAttribute("supplierpage", true);
-					model.addAttribute("mysupplier", new Supplier());
-					model.addAttribute("Error1", false);
-					model.addAttribute("Success", true);
-					model.addAttribute("Error2", false);
-					model.addAttribute("supplier_list", supplierDao.selectAllSupplier());
-					model.addAttribute("Error3", false);
-					model.addAttribute("edit", false);
-				}
-				else
-				{
+				} else {
 					model.addAttribute("supplierpage", true);
 					model.addAttribute("mysupplier", new Supplier());
 					model.addAttribute("Error1", false);

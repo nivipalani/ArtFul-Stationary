@@ -1,8 +1,8 @@
 
 
 
-<body
-	style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, 'Segoe UI', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; background-color: #262626;">
+<!-- <body -->
+<!-- 	style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, 'Segoe UI', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; background-color: #262626;"> -->
 
 	<!-- #region Jssor Slider Begin -->
 	<!-- Generator: Jssor Slider Maker -->
@@ -473,9 +473,6 @@
 			/*#endregion responsive code end*/
 		};
 	</script>
-	<link
-		href="https://fonts.googleapis.com/css?family=Oswald:200,300,regular,500,600,700&subset=latin-ext,vietnamese,latin,cyrillic"
-		rel="stylesheet" type="text/css" />
 	<style>
 /*jssor slider loading skin spin css*/
 .jssorl-009-spin img {
@@ -564,7 +561,7 @@ to {
 					style="position: absolute; top: 0px; left: 0px; width: 980px; height: 380px;">
 					<div data-t="2"
 						style="position: absolute; top: 30px; left: -505px; width: 500px; height: 40px; font-family: Oswald, sans-serif; font-size: 32px; font-weight: 200; line-height: 1.2; text-align: center; background-color: rgba(255, 188, 5, 0.8);">Artful
-					Stationary</div>
+						Stationary</div>
 				</div>
 			</div>
 			<div>
@@ -577,7 +574,7 @@ to {
 				<img data-u="image" src="resources/images/pencil.jpg" />
 				<div data-t="0"
 					style="position: absolute; top: 320px; left: 30px; width: 500px; height: 40px; font-family: Oswald, sans-serif; font-size: 32px; font-weight: 200; line-height: 1.2; text-align: center; background-color: rgba(255, 188, 5, 0.8);">Office
-						and School items</div>
+					and School items</div>
 			</div>
 			<div>
 				<img data-u="image" src="resources/images/img1.jpg" />

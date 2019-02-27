@@ -223,11 +223,10 @@
 
 								<form:form modelAttribute="myuser" method="Post"
 									action="addUser">
-									<div class="form-group">
-										<center>
-											<b><label><font size="5">SignUp to enjoy
-														shopping...</font> </label><b>
-										</center>
+									<div class="form-group" style="font-weight: bold; text-align:center">
+										<label><font size="5">SignUp to enjoy
+														shopping...</font> </label>
+										
 									</div>
 
 
@@ -293,5 +292,4 @@
 
 		</div>
 	</div>
-</div>
 </div>

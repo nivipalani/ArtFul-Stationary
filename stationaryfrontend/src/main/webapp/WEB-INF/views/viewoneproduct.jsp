@@ -118,6 +118,7 @@ footer a {
 					<p></p>
 					<br>
 					<p class="price_discounted ">Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Rs.${myproduct.prod_price}</p>
+					<p class="price_discounted"> Supplier&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:${myproduct.supplier.supplier_Name}
 					<form method="get" action="cart.html">
 						<div class="form-group">
 							<label>Quantity :</label>
@@ -151,7 +152,7 @@ footer a {
 								delivery</li>
 							<li class="list-inline-item"><i
 								class="fa fa-credit-card fa-2x"></i><br />Secure payment</li>
-							<li class="list-inline-item"><i class="fa fa-phone fa-2x"></i><br />+91 96 00 82 65 32</li>
+							<li class="list-inline-item"><i class="fa fa-phone fa-2x"></i><br />+91 95972 38629</li>
 						</ul>
 					</div>
 

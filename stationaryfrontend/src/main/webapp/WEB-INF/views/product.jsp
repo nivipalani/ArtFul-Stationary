@@ -1,5 +1,6 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="cr" value="${pageContext.request.contextPath}" />
 
 <style>
 /*By DjelalEddine@gmail.com*/
@@ -169,7 +170,7 @@
 	}
 }
 </style>
-<
+
 <script type="text/javascript">
 	function filter($state) {
 		var x = document.getElementsByClassName($state);
@@ -200,40 +201,40 @@
 
 								<c:if test="${Success}">
 									<div class="alert alert-success">
-											<strong>Success</strong> Data Inserted...
-										</div>
+										<strong>Success!</strong> Data Inserted in Database...
+									</div>
 								</c:if>
-
 								<c:if test="${Error1}">
 									<div class="alert alert-danger">
-										<strong>Danger</strong> Incorrect Data...
+										<strong>Danger!</strong> Incorrect Data...Enter Correct
+										Data...
 									</div>
 								</c:if>
 								<c:if test="${Error2}">
 									<div class="alert alert-warning">
-										<strong>Warning</strong> Data already exists in Database...
+										<strong>Warning!</strong> Data already exists in Database...
 									</div>
 								</c:if>
 								<c:if test="${Error3}">
 									<div class="alert alert-warning">
-										<strong>Warning</strong>Please contact the Administrator...
+										<strong>Warning!</strong>Please contact the Administrator...
 									</div>
 								</c:if>
 
 								<c:if test="${edit}">
-									<c:set var="url" value="updateProduct"></c:set>
+									<c:set var="url" value="${cr}/supplier/updateProduct"></c:set>
 								</c:if>
 
 								<c:if test="${!edit}">
-									<c:set var="url" value="addProduct"></c:set>
+									<c:set var="url" value="${cr}/supplier/addProduct"></c:set>
 								</c:if>
 
 								<form:form action="${url}" modelAttribute="myproduct"
 									method="Post" enctype="multipart/form-data">
-									<div class="form-group">
-										<center>
-											<b><label><font size="5">Product</font> </label><b>
-										</center>
+									<div class="form-group"
+										style="font-weight: bold; text-align: center">
+										<label><font size="5">Product</font> </label>
+
 									</div>
 
 									<c:if test="${edit}">
@@ -268,6 +269,20 @@
 												<form:option value="${c.cat_Id}">${c.cat_Name}</form:option>
 											</c:forEach>
 										</form:select>
+									</div>
+
+									<!-- 									<div class="form-group"> -->
+									<!-- 										<label for="email"> Supplier:</label> -->
+									<%-- 										<form:select path="supplier.supplier_Id" class="form-control"> --%>
+									<%-- 											<form:option value="0">Select Supplier</form:option> --%>
+									<%-- 											<c:forEach items="${supplier_list}" var="s"> --%>
+									<%-- 												<form:option value="${s.supplier_Id}">${s.supplier_Name}</form:option> --%>
+									<%-- 											</c:forEach> --%>
+									<%-- 										</form:select> --%>
+									<!-- 									</div> -->
+
+									<div class="form-group">
+									<form:hidden path="supplier.supplier_Id" value="${sessionScope.supplierId}"/>
 									</div>
 
 
@@ -305,12 +320,6 @@
 		</div>
 	</div>
 
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.1/css/font-awesome.min.css">
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootswatch/4.1.1/lumen/bootstrap.min.css">
-	<link rel="stylesheet"
-		href="https://daneden.github.io/animate.css/animate.min.css">
 	<div class="container" style="margin-top: 20px;">
 		<div class="row">
 			<div id="user" class="col-md-12">
@@ -335,6 +344,7 @@
 											<th>Product Image</th>
 											<th>Product Description</th>
 											<th>Category</th>
+											<th>Supplier</th>
 											<th>Product Quantity</th>
 											<th>Product Price</th>
 
@@ -343,23 +353,28 @@
 									</thead>
 									<tbody>
 										<c:forEach items="${product_list}" var="p">
-											<tr class="ok">
-												<td>${p.prod_id}</td>
-												<td>${p.prod_name}</td>
-												<td><img src="resources/pimage/${p.prod_id}.jpg"
-													width="50" height="50" /></td>
-												<td>${p.prod_description}</td>
-												<td>${p.category.cat_Name}</td>
-												<td>${p.prod_quantity}</td>
-												<td>${p.prod_price}</td>
-												<td align="center"><a
-													href="editProduct?prodid=${p.prod_id}"
-													class="btn btn-primary" title="Edit"><i
-														class="fa fa-pencil"></i></a> <a
-													href="deleteProduct?prodid=${p.prod_id}"
-													class="btn btn-danger" title="delete"><i
-														class="fa fa-trash"></i></a></td>
-											</tr>
+
+											<c:if
+												test="${sessionScope.supplierId==p.supplier.supplier_Id}">
+												<tr class="ok">
+													<td>${p.prod_id}</td>
+													<td>${p.prod_name}</td>
+													<td><img src="${cr}/resources/pimage/${p.prod_id}.jpg"
+														width="50" height="50" /></td>
+													<td>${p.prod_description}</td>
+													<td>${p.category.cat_Name}</td>
+													<td>${p.supplier.supplier_Name}</td>
+													<td>${p.prod_quantity}</td>
+													<td>${p.prod_price}</td>
+													<td align="center"><a
+														href="${cr}/supplier/editProduct?prodid=${p.prod_id}"
+														class="btn btn-primary" title="Edit"><i
+															class="fa fa-pencil"></i></a> <a
+														href="${cr}/supplier/deleteProduct?prodid=${p.prod_id}"
+														class="btn btn-danger" title="delete"><i
+															class="fa fa-trash"></i></a></td>
+												</tr>
+											</c:if>
 										</c:forEach>
 
 									</tbody>

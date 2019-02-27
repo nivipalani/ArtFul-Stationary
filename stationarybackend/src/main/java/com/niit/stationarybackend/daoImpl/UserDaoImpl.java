@@ -24,7 +24,7 @@ public class UserDaoImpl implements UserDao {
 			UserCred usercred=new UserCred();
 			usercred.setU_Emailid(user.getU_Emailid());
 			usercred.setU_Password(user.getU_password());
-			usercred.setU_role("Role_User");
+			usercred.setU_role("ROLE_USER");
 			usercred.setU_status("True");
 			sessionFactory.getCurrentSession().save(user);
 			sessionFactory.getCurrentSession().save(usercred);
@@ -89,7 +89,7 @@ public class UserDaoImpl implements UserDao {
 		try
 		{
 			
-			return (User)sessionFactory.getCurrentSession().createQuery("from User where u_emailid="+user_emailid).uniqueResult();
+			return (User)sessionFactory.getCurrentSession().createQuery("from User where u_emailid='"+user_emailid+"'").uniqueResult();
 		
 		}
 		catch(Exception e)

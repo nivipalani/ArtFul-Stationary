@@ -17,15 +17,20 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.niit.stationarybackend.dao.CategoryDao;
 import com.niit.stationarybackend.dao.ProductDao;
+import com.niit.stationarybackend.dao.SupplierDao;
 import com.niit.stationarybackend.model.Product;
 
 @Controller
+@RequestMapping("/supplier")
 public class ProductController {
 	@Autowired
 	ProductDao productDao;
 
 	@Autowired
 	CategoryDao categoryDao;
+	
+	@Autowired
+	SupplierDao supplierDao;
 
 	void addimage(MultipartFile f, int id) {
 		try {
@@ -60,6 +65,7 @@ public class ProductController {
 		model.addAttribute("Error2", false);
 		model.addAttribute("product_list", productDao.selectAllProduct());
 		model.addAttribute("category_list", categoryDao.selectAllCategory());
+		model.addAttribute("supplier_list", supplierDao.selectAllSupplier());
 		model.addAttribute("Error3", false);
 		model.addAttribute("edit", false);
 		return "index";
@@ -86,6 +92,7 @@ public class ProductController {
 			model.addAttribute("Error2", false);
 			model.addAttribute("product_list", productDao.selectAllProduct());
 			model.addAttribute("category_list", categoryDao.selectAllCategory());
+			model.addAttribute("supplier_list", supplierDao.selectAllSupplier());
 			model.addAttribute("Error3", false);
 			model.addAttribute("edit", false);
 
@@ -104,6 +111,7 @@ public class ProductController {
 					model.addAttribute("Error2", false);
 					model.addAttribute("product_list", productDao.selectAllProduct());
 					model.addAttribute("category_list", categoryDao.selectAllCategory());
+					model.addAttribute("supplier_list", supplierDao.selectAllSupplier());
 					model.addAttribute("Error3", false);
 					model.addAttribute("edit", false);
 				} else {
@@ -114,6 +122,7 @@ public class ProductController {
 					model.addAttribute("Error2", false);
 					model.addAttribute("product_list", productDao.selectAllProduct());
 					model.addAttribute("category_list", categoryDao.selectAllCategory());
+					model.addAttribute("supplier_list", supplierDao.selectAllSupplier());
 					model.addAttribute("Error3", true);
 					model.addAttribute("edit", false);
 
@@ -127,6 +136,7 @@ public class ProductController {
 				model.addAttribute("Error2", true);
 				model.addAttribute("product_list", productDao.selectAllProduct());
 				model.addAttribute("category_list", categoryDao.selectAllCategory());
+				model.addAttribute("supplier_list", supplierDao.selectAllSupplier());
 				model.addAttribute("Error3", false);
 				model.addAttribute("edit", false);
 			}
@@ -148,6 +158,7 @@ public class ProductController {
 				model.addAttribute("Error2", false);
 				model.addAttribute("product_list", productDao.selectAllProduct());
 				model.addAttribute("category_list", categoryDao.selectAllCategory());
+				model.addAttribute("supplier_list", supplierDao.selectAllSupplier());
 				model.addAttribute("Error3", true);
 				model.addAttribute("edit", false);
 				return "index";
@@ -161,6 +172,7 @@ public class ProductController {
 			model.addAttribute("Error2", false);
 			model.addAttribute("product_list", productDao.selectAllProduct());
 			model.addAttribute("category_list", categoryDao.selectAllCategory());
+			model.addAttribute("supplier_list", supplierDao.selectAllSupplier());
 			model.addAttribute("Error3", true);
 			model.addAttribute("edit", false);
 			return "index";
@@ -178,6 +190,7 @@ public class ProductController {
 		model.addAttribute("Error2", false);
 		model.addAttribute("product_list", productDao.selectAllProduct());
 		model.addAttribute("category_list", categoryDao.selectAllCategory());
+		model.addAttribute("supplier_list", supplierDao.selectAllSupplier());
 		model.addAttribute("Error3", false);
 		model.addAttribute("edit", true);
 		return "index";
@@ -195,6 +208,7 @@ public class ProductController {
 			model.addAttribute("Error2", false);
 			model.addAttribute("product_list", productDao.selectAllProduct());
 			model.addAttribute("category_list", categoryDao.selectAllCategory());
+			model.addAttribute("supplier_list", supplierDao.selectAllSupplier());
 			model.addAttribute("Error3", false);
 			model.addAttribute("edit", true);
 
@@ -212,6 +226,7 @@ public class ProductController {
 					model.addAttribute("Error2", false);
 					model.addAttribute("product_list", productDao.selectAllProduct());
 					model.addAttribute("category_list", categoryDao.selectAllCategory());
+					model.addAttribute("supplier_list", supplierDao.selectAllSupplier());
 					model.addAttribute("Error3", false);
 					model.addAttribute("edit", false);
 				} else {
@@ -222,6 +237,7 @@ public class ProductController {
 					model.addAttribute("Error2", false);
 					model.addAttribute("product_list", productDao.selectAllProduct());
 					model.addAttribute("category_list", categoryDao.selectAllCategory());
+					model.addAttribute("supplier_list", supplierDao.selectAllSupplier());
 					model.addAttribute("Error3", true);
 					model.addAttribute("edit", true);
 
@@ -236,6 +252,7 @@ public class ProductController {
 				model.addAttribute("Error2", true);
 				model.addAttribute("product_list", productDao.selectAllProduct());
 				model.addAttribute("category_list", categoryDao.selectAllCategory());
+				model.addAttribute("supplier_list", supplierDao.selectAllSupplier());
 				model.addAttribute("Error3", false);
 				model.addAttribute("edit", true);
 			}
@@ -244,21 +261,5 @@ public class ProductController {
 		return "index";
 	}
 
-	@RequestMapping("/viewallproduct")
-	public String viewAllProducts(Model model) {
-		model.addAttribute("allproductpage", true);
-		model.addAttribute("myproduct", new Product());
-		model.addAttribute("product_list", productDao.selectAllProduct());
-		return "index";
-	}
-
-	@RequestMapping("/viewoneproduct")
-	public String oneproductpage(Model model, @RequestParam("pid") int pid) {
-		model.addAttribute("oneproductpage", true);
-		//model.addAttribute("title", "GiftGalore-Products");
-		model.addAttribute("myproduct", productDao.selectOneProduct(pid));
-		return "index";
-
-	}
 
 }

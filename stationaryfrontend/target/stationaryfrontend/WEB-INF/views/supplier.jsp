@@ -169,7 +169,7 @@
 	}
 }
 </style>
-<
+
 <script type="text/javascript">
 	function filter($state) {
 		var x = document.getElementsByClassName($state);
@@ -226,15 +226,14 @@
 									<c:set var="url" value="addSupplier"></c:set>
 								</c:if>
 
-								<form:form action="${url}" modelAttribute="mysupplier"
-									method="Post">
-									<div class="form-group">
+								<form:form action="${url}" modelAttribute="mysupplier" method="Post">
+									<div class="form-group" style="font-weight: bold; text-align:center">
 											<label><font size="5">Supplier</font> </label>
 									</div>
 
 									<c:if test="${edit}">
 										<div class="form-group">
-											<label for="email"> Supplier ID:</label>
+											<label for="ID"> Supplier ID:</label>
 											<form:input type="text" name="sup_id"
  												class="form-control my-input" id="id" 
 												placeholder="Supplier ID" path="supplier_Id" readonly="true" /> 
@@ -242,7 +241,7 @@
 									</c:if>
 
 									<div class="form-group">
-										<label for="email"> Supplier Name:</label>
+										<label for="Name"> Supplier Name:</label>
 										<form:input type="text" name="sup_name"
 											class="form-control my-input" id="name"
 											placeholder="Supplier Name" path="supplier_Name" />
@@ -267,7 +266,7 @@
 									
 
 									<div class="form-group">
-										<label for="email"> Phone Number:</label>
+										<label for="phonenumber"> Phone Number:</label>
 										<form:input type="text" name="Phone_Number"
 											class="form-control my-input" id="name"
 											placeholder="Phone Number" path="supplier_phonenumber" />
@@ -281,9 +280,15 @@
 											placeholder="EmailID" path="supplier_emailid" />
 										<form:errors path="supplier_emailid" cssStyle="color:Red"></form:errors>
 									</div>
-
-								
-
+									
+									<div class="form-group">
+										<label for="password"> Password:</label>
+										<form:input type="password" name="password"
+											class="form-control my-input" id="password"
+											placeholder="Password" path="supplier_password" />
+										<form:errors path="supplier_password" cssStyle="color:Red"></form:errors>
+									</div>
+									
 									<input type="submit" class="form-btn" value="Save" />
 								</form:form>
 
@@ -296,70 +301,4 @@
 		</div>
 	</div>
 
-<!-- 	<link rel="stylesheet" -->
-<!-- 		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.1/css/font-awesome.min.css"> -->
-<!-- 	<link rel="stylesheet" -->
-<!-- 		href="https://maxcdn.bootstrapcdn.com/bootswatch/4.1.1/lumen/bootstrap.min.css"> -->
-<!-- 	<link rel="stylesheet" -->
-<!-- 		href="https://daneden.github.io/animate.css/animate.min.css"> -->
-	<div class="container" style="margin-top: 20px;">
-		<div class="row">
-			<div id="user" class="col-md-12">
-				<div class="panel panel-primary panel-table animated slideInDown">
-					<div class="panel-heading " style="padding: 5px;">
-						<div class="row">
-
-							<div class="col col-xs-5 text-center">
-								<h1 class="panel-title">Supplier List</h1>
-							</div>
-
-						</div>
-					</div>
-					<div class="panel-body">
-						<div class="tab-content" style="margin-bottom: 10px">
-							<div role="tabpanel" class="tab-pane active" id="list">
-								<table class="table table-striped table-bordered table-list">
-									<thead style="background-color: #e51937">
-										<tr>
-											<th>Supplier ID</th>
-											<th>Supplier Name</th>
- 											<th>Location</th>
-											<th>Phone Number</th>
-											<th>Email ID</th>
-
-											<th><em class="fa fa-cog"></em></th>
-										</tr>
-									</thead>
-									<tbody>
-										<c:forEach items="${supplier_list}" var="s">
-											<tr class="ok">
-												<td>${s.supplier_Id}</td>
-												<td>${s.supplier_Name}</td>
- 												<td>${s.location}</td> 
-												<td>${s.supplier_phonenumber}</td>
-												<td>${s.supplier_emailid}</td>
-												<td align="center"><a
-													href="editSupplier?supid=${s.supplier_Id}"
-													class="btn btn-primary" title="Edit"><i
-														class="fa fa-pencil"></i></a> <a
-													href="deleteSupplier?supid=${s.supplier_Id}"
-													class="btn btn-danger" title="delete"><i
-														class="fa fa-trash"></i></a></td>
-											</tr>
-										</c:forEach>
-
-									</tbody>
-								</table>
-							</div>
-
-
-						</div>
-
-					</div>
-				</div>
-
-
-			</div>
-		</div>
-	</div>
 </section>
