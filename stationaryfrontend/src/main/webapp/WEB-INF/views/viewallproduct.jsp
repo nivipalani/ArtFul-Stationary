@@ -70,6 +70,10 @@
 .item.list-group-item:after {
 	clear: both;
 }
+.btn
+{
+background-color: #e51937;
+}
 </style>
 <div class="container-fluid">
 	<div class="row">
@@ -77,7 +81,7 @@
 		<div class="col-lg-12 my-3">
 			<div class="pull-right">
 				<div class="btn-group">
-					<button class="btn btn-info" id="list">List View</button>
+					<button class="btn btn-info" id="list">List View</button>&nbsp;&nbsp;
 					<button class="btn btn-danger" id="grid">Grid View</button>
 				</div>
 			</div>

@@ -103,15 +103,15 @@ section .section-title {
 						support@artfulstationery.in</center>
 
 					<ul class="list-unstyled list-inline social text-center">
-						<li class="list-inline-item"><a href="javascript:void();"><i
+						<li class="list-inline-item"><a href="https://www.facebook.com"><i
 								class="fa fa-facebook"></i></a></li>
-						<li class="list-inline-item"><a href="javascript:void();"><i
+						<li class="list-inline-item"><a href="https://www.twitter.com"><i
 								class="fa fa-twitter"></i></a></li>
-						<li class="list-inline-item"><a href="javascript:void();"><i
+						<li class="list-inline-item"><a href="https://www.instagram.com"><i
 								class="fa fa-instagram"></i></a></li>
-						<li class="list-inline-item"><a href="javascript:void();"><i
+						<li class="list-inline-item"><a href="https://www.google.com"><i
 								class="fa fa-google-plus"></i></a></li>
-						<li class="list-inline-item"><a href="javascript:void();"
+						<li class="list-inline-item"><a href="https://www.envelope.com"
 							target="_blank"><i class="fa fa-envelope"></i></a></li>
 					</ul> </font>
 			</div>

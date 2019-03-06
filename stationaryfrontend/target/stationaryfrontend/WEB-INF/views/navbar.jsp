@@ -2,6 +2,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <c:set var="cr" value="${pageContext.request.contextPath}" />
 <style>
 /*============ Rotate Bar style ============*/
@@ -107,6 +108,65 @@ body {
 	padding: 14px 14px;
 	text-decoration: none;
 }
+
+#cart {
+	color: #ffffff;
+	font-family: Monotype Corsiva;
+	font-size: 15px;
+	font-style: oblique;
+}
+
+.nav {
+	left: 50%;
+	margin-left: -150px;
+	top: 50px;
+	position: absolute;
+}
+
+.nav>li>a:hover, .nav>li>a:focus, .nav .open>a, .nav .open>a:hover, .nav .open>a:focus
+	{
+	background: #fff;
+}
+
+.dropdown {
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 300px;
+}
+
+.dropdown-menu>li>a {
+	color: #428bca;
+}
+
+.dropdown ul.dropdown-menu {
+	border-radius: 4px;
+	box-shadow: none;
+	margin-top: 0px;
+	width: 10px;
+}
+
+.dropdown ul.dropdown-menu:before {
+	content: "";
+	border-bottom: 10px solid #fff;
+	border-right: 10px solid transparent;
+	border-left: 10px solid transparent;
+	position: absolute;
+	top: -10px;
+	right: 16px;
+	z-index: 10;
+}
+
+.dropdown ul.dropdown-menu:after {
+	content: "";
+	border-bottom: 12px solid #ccc;
+	border-right: 12px solid transparent;
+	border-left: 12px solid transparent;
+	position: absolute;
+	top: -12px;
+	right: 14px;
+	z-index: 9;
+}
 </style>
 
 
@@ -130,14 +190,37 @@ body {
 								<li><a href="${cr}/contactus"><span>Contact Us</span></a></li>
 								<li><a href="${cr}/viewallproduct"><span>View
 											All Products</span></a></li>
-
 								<li><a href="${cr}/user/viewcart" id="cart"><i
-										class="fa-fa-shopping-cart"></i>Cart<span class="badge">${sessionScope.itemcount}
-									</span></a></li>
-
-								<li><a href=""><span>Welcome!&nbsp; ${loginName}</span></a></li>
+										class="fa fa-shopping-cart"></i>&nbsp;Cart &nbsp;
+										${sessionScope.itemcount}<span class="badge"></span></a></li>
 								<li><a href="${cr}/logout"><span>Logout</span></a></li>
+								</li>
 							</ul>
+
+
+							<!-- 							<ul class="nav navbar-nav"> -->
+							<!-- 								<li class="dropdown"><a href="#" class="dropdown-toggle" -->
+							<!-- 									data-toggle="dropdown">Iasmani Pinazo <span -->
+							<!-- 										class="glyphicon glyphicon-user pull-right"></span></a> -->
+							<!-- 									<ul class="dropdown-menu"> -->
+							<!-- 										<li><a href="#">Account Settings <span -->
+							<!-- 												class="glyphicon glyphicon-cog pull-right"></span></a></li> -->
+							<!-- 										<li class="divider"></li> -->
+							<!-- 										<li><a href="#">User stats <span -->
+							<!-- 												class="glyphicon glyphicon-stats pull-right"></span></a></li> -->
+							<!-- 										<li class="divider"></li> -->
+							<!-- 										<li><a href="#">Messages <span -->
+							<!-- 												class="badge pull-right"> 42 </span></a></li> -->
+							<!-- 										<li class="divider"></li> -->
+							<!-- 										<li><a href="#">Favourites Snippets <span -->
+							<!-- 												class="glyphicon glyphicon-heart pull-right"></span></a></li> -->
+							<!-- 										<li class="divider"></li> -->
+							<!-- 										<li><a href="#">Sign Out <span -->
+							<!-- 												class="glyphicon glyphicon-log-out pull-right"></span></a></li> -->
+							<!-- 									</ul></li> -->
+							<!-- 							</ul> -->
+
+							<!-- 							</ul> -->
 
 						</c:when>
 						<c:when test="${sessionScope.SupplierLoggedIn}">

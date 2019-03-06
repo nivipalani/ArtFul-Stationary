@@ -8,18 +8,21 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 public class Address {
 
 	@ManyToOne
 	User user;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int address_Id;
 
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false)
+	String bname;
+
+	@Column(nullable = false)
 	@NotEmpty(message = "Address Line1 is mandatory")
 	private String line1;
 
@@ -35,16 +38,23 @@ public class Address {
 	@NotEmpty(message = "User state is mandatory")
 	private String state;
 
-	@Column(nullable = false, columnDefinition = "number")
-	@NotEmpty(message = "User pincode is mandatory")
+	@Column(nullable = false)
 	private int pincode;
 
-	public User getUserd() {
+	public String getBname() {
+		return bname;
+	}
+
+	public void setBname(String bname) {
+		this.bname = bname;
+	}
+
+	public User getUser() {
 		return user;
 	}
 
-	public void setUserd(User userd) {
-		this.user = userd;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public int getAddress_Id() {
@@ -94,8 +104,5 @@ public class Address {
 	public void setPincode(int pincode) {
 		this.pincode = pincode;
 	}
-	
-	
-	
 
 }

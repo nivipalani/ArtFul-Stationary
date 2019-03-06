@@ -23,11 +23,9 @@ public class Cart {
 	Product product;
 	
 	@Column(nullable=false,columnDefinition="number")
-	@NotEmpty(message="Quantity is mandatory")
 	int quantity;
 	
 	@Column(nullable=false)
-	@NotEmpty(message="Total is mandatory")
 	float subTotal;
 
 	public int getItem_Id() {

@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="cr" value="${pageContext.request.contextPath}" />
+
 <style type="text/css">
 /*
 	** Style Simple Ecommerce Theme for Bootstrap 4
@@ -33,7 +36,7 @@
 .add_to_cart_block .price_discounted {
 	color: #343a40;
 	text-align: left;
-	text-decoration:blink;
+	text-decoration: blink;
 	font-size: 100%;
 }
 
@@ -104,7 +107,7 @@ footer a {
 			<div class="card bg-light mb-3">
 				<div class="card-body">
 					<img class="img-fluid"
-						src="resources/pimage/${myproduct.prod_id}.jpg"
+						src="${cr}/resources/pimage/${myproduct.prod_id}.jpg"
 						style="max-height: 400px;" width="100%" />
 				</div>
 			</div>
@@ -117,42 +120,45 @@ footer a {
 					<p class="price">${myproduct.prod_name}</p>
 					<p></p>
 					<br>
-					<p class="price_discounted ">Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Rs.${myproduct.prod_price}</p>
-					<p class="price_discounted"> Supplier&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:${myproduct.supplier.supplier_Name}
-					<form method="get" action="cart.html">
-						<div class="form-group">
-							<label>Quantity :</label>
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<button type="button"
-										class="quantity-left-minus btn btn-danger btn-number"
-										data-type="minus" data-field="">
-										<i class="fa fa-minus"></i>
-									</button>
-								</div>
-								<input type="text" class="form-control" id="quantity"
-									name="quantity" min="1" max="100" value="1">
-								<div class="input-group-append">
-									<button type="button"
-										class="quantity-right-plus btn btn-success btn-number"
-										data-type="plus" data-field="">
-										<i class="fa fa-plus"></i>
-									</button>
-								</div>
+					<p class="price_discounted ">Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+						Rs.${myproduct.prod_price}</p>
+					<p class="price_discounted">
+						Supplier&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:${myproduct.supplier.supplier_Name}
+
+					
+					<div class="form-group">
+						<label>Quantity :</label>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<button type="button"
+									class="quantity-left-minus btn btn-danger btn-number"
+									data-type="minus" data-field="">
+									<i class="fa fa-minus"></i>
+								</button>
+							</div>
+							<input type="text" class="form-control" id="quantity"
+								name="quantity" min="1" max="100" value="1">
+							<div class="input-group-append">
+								<button type="button"
+									class="quantity-right-plus btn btn-success btn-number"
+									data-type="plus" data-field="">
+									<i class="fa fa-plus"></i>
+								</button>
 							</div>
 						</div>
-						<a href="cart.html"
-							class="btn btn-success btn-lg btn-block text-uppercase"> <i
-							class="fa fa-shopping-cart"></i> Add To Cart
-						</a>
-					</form>
+					</div>
+					<a href="${cr}/addToCart?pid=${myproduct.prod_id}"
+						class="btn btn-success btn-lg btn-block text-uppercase"> <i
+						class="fa fa-shopping-cart"></i> Add To Cart
+					</a>
 					<div class="product_rassurance">
 						<ul class="list-inline">
 							<li class="list-inline-item"><i class="fa fa-truck fa-2x"></i><br />Fast
 								delivery</li>
 							<li class="list-inline-item"><i
 								class="fa fa-credit-card fa-2x"></i><br />Secure payment</li>
-							<li class="list-inline-item"><i class="fa fa-phone fa-2x"></i><br />+91 95972 38629</li>
+							<li class="list-inline-item"><i class="fa fa-phone fa-2x"></i><br />+91
+								95972 38629</li>
 						</ul>
 					</div>
 

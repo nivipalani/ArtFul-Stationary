@@ -73,6 +73,15 @@ public class HomeController {
 				session.setAttribute("userid", user.getU_Id());
 				session.setAttribute("loginName", user.getU_Name());
 				session.setAttribute("UserloggedIn", true);
+				if(session.getAttribute("pid")==null)
+				{
+					return "redirect:/viewallproduct";
+				}
+				else
+				{
+					return "redirect:/addToCart?pid="+Integer.parseInt(session.getAttribute("pid").toString());
+					
+				}
 		
 			} else if (authority.getAuthority().equals("ROLE_ADMIN")) {
 

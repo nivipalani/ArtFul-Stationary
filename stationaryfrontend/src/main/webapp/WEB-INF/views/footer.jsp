@@ -97,21 +97,21 @@ section .section-title {
 			<div
 				class=" col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5 col-md-8 form">
 				<br>
-				<font color="#ffffff" face="Monotype Corsiva"><center>Address:
+				<font color="#ffffff" face="Geneva"><center>Address:
 						7, Street #12, Gandhi Park, Laxmi Nagar, Coimbatore - 641016</center>
 					<center>Phone: +91-11-8810343286 &nbsp;&nbsp;&nbsp;Email:
 						support@artfulstationery.in</center>
 
 					<ul class="list-unstyled list-inline social text-center">
-						<li class="list-inline-item"><a href="javascript:void();"><i
+						<li class="list-inline-item"><a href="https://www.facebook.com"><i
 								class="fa fa-facebook"></i></a></li>
-						<li class="list-inline-item"><a href="javascript:void();"><i
+						<li class="list-inline-item"><a href="https://www.twitter.com"><i
 								class="fa fa-twitter"></i></a></li>
-						<li class="list-inline-item"><a href="javascript:void();"><i
+						<li class="list-inline-item"><a href="https://www.instagram.com"><i
 								class="fa fa-instagram"></i></a></li>
-						<li class="list-inline-item"><a href="javascript:void();"><i
+						<li class="list-inline-item"><a href="https://www.google.com"><i
 								class="fa fa-google-plus"></i></a></li>
-						<li class="list-inline-item"><a href="javascript:void();"
+						<li class="list-inline-item"><a href="https://www.envelope.com"
 							target="_blank"><i class="fa fa-envelope"></i></a></li>
 					</ul> </font>
 			</div>

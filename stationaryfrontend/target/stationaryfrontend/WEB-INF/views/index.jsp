@@ -51,6 +51,9 @@
 		<c:if test="${oneproductpage}">
 		<jsp:include page="viewoneproduct.jsp" />
 		</c:if>
+		<c:if test="${addresspage}">
+		<jsp:include page="address.jsp"/>
+		</c:if>
 
 	</div>
 	<jsp:include page="footer.jsp" />
