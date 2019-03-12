@@ -85,7 +85,7 @@ a, a:hover, a:focus {
 
 .tab-menu ul li a span {
 	transform: skew(30deg);
-	font-family: Monotype Corsiva;
+	font-family: Geneva;
 	font-size: 15px;
 	font-style: oblique;
 	display: block;
@@ -193,8 +193,8 @@ body {
 								<li><a href="${cr}/user/viewcart" id="cart"><i
 										class="fa fa-shopping-cart"></i>&nbsp;Cart &nbsp;
 										${sessionScope.itemcount}<span class="badge"></span></a></li>
+								<li><a href=""><span>Welcome!&nbsp; ${loginName}</span></a></li>
 								<li><a href="${cr}/logout"><span>Logout</span></a></li>
-								</li>
 							</ul>
 
 

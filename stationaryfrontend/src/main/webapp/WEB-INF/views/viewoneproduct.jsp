@@ -93,6 +93,15 @@ footer a {
             }
         });
     });
+
+
+</script>
+<script>
+	var i=1;
+	function buttonClick()
+	{
+		document.getElementById('inc').value=++i;
+	}
 </script>
 <link
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -137,9 +146,9 @@ footer a {
 								</button>
 							</div>
 							<input type="text" class="form-control" id="quantity"
-								name="quantity" min="1" max="100" value="1">
+								name="quantity" min="1" max="100" value="1" id="inc">
 							<div class="input-group-append">
-								<button type="button"
+								<button type="button" onclick="buttonClick()"
 									class="quantity-right-plus btn btn-success btn-number"
 									data-type="plus" data-field="">
 									<i class="fa fa-plus"></i>

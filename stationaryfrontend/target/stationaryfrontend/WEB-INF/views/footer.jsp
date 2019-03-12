@@ -97,7 +97,7 @@ section .section-title {
 			<div
 				class=" col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5 col-md-8 form">
 				<br>
-				<font color="#ffffff" face="Monotype Corsiva"><center>Address:
+				<font color="#ffffff" face="Geneva"><center>Address:
 						7, Street #12, Gandhi Park, Laxmi Nagar, Coimbatore - 641016</center>
 					<center>Phone: +91-11-8810343286 &nbsp;&nbsp;&nbsp;Email:
 						support@artfulstationery.in</center>

@@ -386,7 +386,7 @@
 											href="${cr}/user/editAddress?addrid=${v.address_Id}"></a> <a
 											class="btn btn-success fa fa-trash"
 											href="${cr}/user/deleteAddress?addrid=${v.address_Id}"></a> <a
-											class="btn btn-success fa fa-truck" href=""></a>
+											class="btn btn-success fa fa-truck" href="${cr}/user/placeorder?addressid=${v.address_Id}"></a>
 									</div>
 								</div>
 							</div>

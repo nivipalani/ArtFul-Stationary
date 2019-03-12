@@ -1,11 +1,15 @@
 package com.niit.stationarybackend.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -15,12 +19,10 @@ public class MyOrder {
 	@Id
 	private String order_Id;
 
-	@Column(nullable = false, unique = true)
-	@NotEmpty(message = "Product Quantity is mandatory")
+	@Column(nullable = false)
 	private int quantity;
 
 	@Column(nullable = false)
-	@NotEmpty
 	private float grandTotal;
 	
 	@ManyToOne
@@ -31,6 +33,10 @@ public class MyOrder {
 
 	@ManyToOne
 	Product product;
+	
+	@Column(nullable=false)
+	@Temporal(TemporalType.DATE)
+	Date orderDate;
 
 	public User getUser() {
 		return user;
@@ -78,6 +84,14 @@ public class MyOrder {
 
 	public void setGrandTotal(float grandTotal) {
 		this.grandTotal = grandTotal;
+	}
+
+	public Date getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(Date orderDate) {
+		this.orderDate = orderDate;
 	}
 	
 	

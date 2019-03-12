@@ -109,7 +109,7 @@ section .section-title {
 								class="fa fa-twitter"></i></a></li>
 						<li class="list-inline-item"><a href="https://www.instagram.com"><i
 								class="fa fa-instagram"></i></a></li>
-						<li class="list-inline-item"><a href="https://www.google.com"><i
+						<li class="list-inline-item"><a href="https://www.googleplus.com"><i
 								class="fa fa-google-plus"></i></a></li>
 						<li class="list-inline-item"><a href="https://www.envelope.com"
 							target="_blank"><i class="fa fa-envelope"></i></a></li>

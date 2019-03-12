@@ -253,34 +253,35 @@
 	}
 </script>
 
-<div class="container" style="margin-top: 0%">
+<div class="container" style="margin-top: 5%; margin-bottom: 5%">
 	<div class="row">
 		<div class="col-md-4">
 
 			<div class="form-warp">
 				<div class="form-card">
 					<div class="form">
+						<c:if test="${Success}">
+							<div class="alert alert-success">
+								<strong>Success!</strong> Data Inserted in Database...
+							</div>
+						</c:if>
+						<c:if test="${Error1}">
+							<div class="alert alert-danger">
+								<strong>Danger!</strong> Incorrect Data...Enter Correct Data...
+							</div>
+						</c:if>
+						<c:if test="${Error2}">
+							<div class="alert alert-warning">
+								<strong>Warning!</strong> Data already exists in Database...
+							</div>
+						</c:if>
+						<c:if test="${Error3}">
+							<div class="alert alert-warning">
+								<strong>Warning!</strong>Please contact the Administrator...
+							</div>
+						</c:if>
 						<div class="form-content form-type-one">
-							<c:if test="${Success}">
-								<div class="alert alert-success">
-									<strong>Success!</strong> Data Inserted in Database...
-								</div>
-							</c:if>
-							<c:if test="${Error1}">
-								<div class="alert alert-danger">
-									<strong>Danger!</strong> Incorrect Data...Enter Correct Data...
-								</div>
-							</c:if>
-							<c:if test="${Error2}">
-								<div class="alert alert-warning">
-									<strong>Warning!</strong> Data already exists in Database...
-								</div>
-							</c:if>
-							<c:if test="${Error3}">
-								<div class="alert alert-warning">
-									<strong>Warning!</strong>Please contact the Administrator...
-								</div>
-							</c:if>
+
 
 							<c:if test="${edit}">
 								<c:set var="url" value="${cr}/user/updateAddress"></c:set>
@@ -292,16 +293,10 @@
 
 							<form:form action="${url}" modelAttribute="myaddress"
 								method="Post">
-								
-								<c:if test="${edit}">
-								<form:hidden path="address_Id"/>
-								</c:if>
-
-								<form:hidden path="user.u_Id" value="${sessionScope.userid}" />
 
 								<div class="form-group"
-									style="font-weight: bold; text-align: center; margin-top: 2%">
-									<label><font size="5">Customer Address</font> </label>
+									style="font-weight: bold; text-align: center;">
+									<label><font size="5">Delivery Address</font> </label>
 
 								</div>
 
@@ -345,7 +340,16 @@
 										placeholder="Pincode" path="pincode"
 										class="form-control my-input" />
 								</div>
-								<input type="submit" class="btn btn-success" value="Save" />
+								<br>
+								<center>
+									<input type="submit" class="btn btn-success" value="Save" />
+								</center>
+								<c:if test="${edit}">
+									<form:hidden path="address_Id" />
+								</c:if>
+
+								<form:hidden path="user.u_Id" value="${sessionScope.userid}" />
+
 							</form:form>
 						</div>
 					</div>
@@ -354,35 +358,35 @@
 			</div>
 		</div>
 		<div class="col-md-8">
-			<div class="row">
+			<div class="row" style="margin-top: 0%">
 				<c:forEach items="${address_list}" var="v">
 					<div class="col-lg-4">
 						<div class="thumbnail card">
 							<div class="img-event">
 								<img class="group list-group-image img-fluid"
-									src="http://pngimagesfree.com/house/t/HOUSE-PNG.png"
+									src="https://media2.s-nbcnews.com/i/newscms/2016_29/1144622/home-vacation-prep-today-160720-tease_b4ae657a1e09780845d75b604be99522.jpg"
+									;
 									alt="Unsupported browser"
 									style="max-height: 100px; width: 100%" />
 							</div>
-							<div class="caption card-body">
+							<div class="caption card-body" style="font-family: Geneva">
 								<h5 class="group card-title inner list-group-item-heading">
-									${v.bname}</h5>
+								</h5>
 								<div class="row">
 									<div class="col-xs-12">
-										<p class="lead">${v.line1}</p>
-										<p class="lead">${v.line2}</p>
-										<p class="lead">${v.city}</p>
-										<p class="lead">${v.state}</p>
-										<p class="lead">${v.pincode}</p>
+										<p class="lead">${v.bname}<br>${v.line1},<br>
+											${v.line2},<br> ${v.city},<br> ${v.state},<br>
+											${v.pincode}.
+										</p>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-xs-12">
-										<a class="btn btn-success"
-											href="${cr}/user/editAddress?addrid=${v.address_Id}">Edit</a>
-										<a class="btn btn-success"
-											href="${cr}/user/deleteAddress?addrid=${v.address_Id}">Delete</a>
-										<a class="btn btn-success" href="">Deliver Here</a>
+										<a class="btn btn-success fa fa-pencil"
+											href="${cr}/user/editAddress?addrid=${v.address_Id}"></a> <a
+											class="btn btn-success fa fa-trash"
+											href="${cr}/user/deleteAddress?addrid=${v.address_Id}"></a> <a
+											class="btn btn-success fa fa-truck" href="${cr}/user/placeorder?addressid=${v.address_Id}"></a>
 									</div>
 								</div>
 							</div>
