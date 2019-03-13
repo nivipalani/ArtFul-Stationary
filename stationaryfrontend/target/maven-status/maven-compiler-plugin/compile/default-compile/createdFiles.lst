@@ -1,8 +1,0 @@
-com\niit\stationaryfrontend\controllers\HomeController.class
-com\niit\stationaryfrontend\controllers\ProductController.class
-com\niit\stationaryfrontend\controllers\CartController.class
-com\niit\stationaryfrontend\controllers\UserController.class
-com\niit\stationaryfrontend\controllers\AddressController.class
-com\niit\stationaryfrontend\controllers\OrderController.class
-com\niit\stationaryfrontend\controllers\CategoryController.class
-com\niit\stationaryfrontend\controllers\SupplierController.class
